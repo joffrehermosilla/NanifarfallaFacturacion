@@ -43,5 +43,5 @@ public class AuditoriaAreaController {
 	}
 
 	// http://localhost:8085/nanifarfalla-service/swagger-ui.html
-	
+
 }

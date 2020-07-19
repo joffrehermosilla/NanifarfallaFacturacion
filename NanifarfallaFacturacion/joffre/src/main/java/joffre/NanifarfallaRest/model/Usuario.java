@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,11 +20,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "usuario")
 @EntityListeners(AuditingEntityListener.class)
 public class Usuario {
-	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,35 +43,69 @@ public class Usuario {
 	String password_usuario;
 	@NotBlank
 	String ruta_foto_usuario;
-	
+
 	@JoinColumn(name = "fkcodigo_distrito", referencedColumnName = "codigo_distrito")
 	@JsonBackReference
 	@ManyToOne
 	Distrito distrito;
-	
+
 	@JoinColumn(name = "fkcodigo_tipousuario", referencedColumnName = "codigo_tipousuario")
 	@JsonBackReference
 	@ManyToOne
 	TipoUsuario tipousuario;
-	
+
 	@JoinColumn(name = "fkcodigo_estadousuario", referencedColumnName = "codigo_estadousuario")
 	@JsonBackReference
 	@ManyToOne
 	EstadoUsuario estadousuario;
-	
 
 	@OneToMany(mappedBy = "mUsuario")
 	private Collection<Cliente> cliente = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "usuario")
 	private Collection<Vendedor> vendedor = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "mUsuario")
 	private Collection<Cliente_tiene_pedido> cliente_tiene_pedido = new ArrayList<>();
-	
+
+	@OneToMany(mappedBy = "mUsuario", fetch = FetchType.EAGER)
+	private Collection<UserAnuncios> useranuncios = new ArrayList<>();
+
+	public Collection<Cliente> getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Collection<Cliente> cliente) {
+		this.cliente = cliente;
+	}
+
+	public Collection<Vendedor> getVendedor() {
+		return vendedor;
+	}
+
+	public void setVendedor(Collection<Vendedor> vendedor) {
+		this.vendedor = vendedor;
+	}
+
+	public Collection<Cliente_tiene_pedido> getCliente_tiene_pedido() {
+		return cliente_tiene_pedido;
+	}
+
+	public void setCliente_tiene_pedido(Collection<Cliente_tiene_pedido> cliente_tiene_pedido) {
+		this.cliente_tiene_pedido = cliente_tiene_pedido;
+	}
+
+	public Collection<UserAnuncios> getUseranuncios() {
+		return useranuncios;
+	}
+
+	public void setUseranuncios(Collection<UserAnuncios> useranuncios) {
+		this.useranuncios = useranuncios;
+	}
+
 	@NotBlank
 	String claveApi;
-	
+
 	public int getCodigo_usuario() {
 		return codigo_usuario;
 	}
@@ -175,7 +210,7 @@ public class Usuario {
 	}
 
 	public Usuario() {
-	
+
 	}
 
 	@Override
@@ -188,11 +223,5 @@ public class Usuario {
 				+ cliente + ", vendedor=" + vendedor + ", cliente_tiene_pedido=" + cliente_tiene_pedido + ", claveApi="
 				+ claveApi + "]";
 	}
-
-
-	
-	
-	
-	
 
 }

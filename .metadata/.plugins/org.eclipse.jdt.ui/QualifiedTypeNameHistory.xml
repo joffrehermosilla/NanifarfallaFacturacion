@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.AnuncioRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.Anuncio"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.controller.auditorias.AuditoriaAnuncio"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaAnuncioRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaAnuncio"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.UserAnunciosRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.UserAnuncios"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaUserAnuncioRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaUserAnuncio"/>
+</qualifiedTypeNameHistroy>
