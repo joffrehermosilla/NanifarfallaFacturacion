@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import joffre.NanifarfallaRest.exception.ResourceNotFoundException;
 import joffre.NanifarfallaRest.model.UserAnuncios;
 import joffre.NanifarfallaRest.repository.UserAnunciosRepository;
-// mejorar los git
+
 @RestController
 @RequestMapping("/apiUserAnuncio")
 public class UserAnunciosController {
