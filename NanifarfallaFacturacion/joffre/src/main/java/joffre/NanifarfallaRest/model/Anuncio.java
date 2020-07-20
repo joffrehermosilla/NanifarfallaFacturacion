@@ -39,6 +39,17 @@ public class Anuncio {
 	@NotBlank
 	private Date version;
 
+	@NotBlank
+	String claveApi;
+
+	public String getClaveApi() {
+		return claveApi;
+	}
+
+	public void setClaveApi(String claveApi) {
+		this.claveApi = claveApi;
+	}
+
 	public Collection<UserAnuncios> getUseranuncios() {
 		return useranuncios;
 	}
@@ -49,8 +60,7 @@ public class Anuncio {
 
 	@OneToMany(mappedBy = "mAnuncio", fetch = FetchType.EAGER)
 	private Collection<UserAnuncios> useranuncios = new ArrayList<>();
-	
-	
+
 	public Anuncio() {
 
 	}

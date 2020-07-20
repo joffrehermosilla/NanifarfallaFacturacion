@@ -71,7 +71,10 @@ public class AnuncioController {
 		anuncio.setRuta_imagen(anuncioDetails.getRuta_imagen());
 		anuncio.setVersion(anuncioDetails.getVersion());
 		anuncio.setUseranuncios(anuncioDetails.getUseranuncios());
-
+		anuncio.setClaveApi(anuncioDetails.getAnuncio_principal());
+		
+		
+		
 		Anuncio updatedAnuncio = anuncioRepository.save(anuncio);
 		LOGGER.info("METHOD: 'updateAnuncio'--PARAMS: '" + anuncioDetails + "'");
 		LOGGER.warn("WARNING  TRACE");

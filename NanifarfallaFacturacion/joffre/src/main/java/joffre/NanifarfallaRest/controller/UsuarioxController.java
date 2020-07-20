@@ -23,10 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/apiUsuariox")
 public class UsuarioxController {
+	private static final Log LOGGER = LogFactory.getLog(UsuarioxController.class);
 	@Autowired
 	UsuarioRepository Usuarioxrepository;
-
-	private static final Log LOGGER = LogFactory.getLog(UsuarioxController.class);
 
 	@GetMapping("/detallesUsuariox")
 	public List<Usuario> getAllUsuariox() {
@@ -62,7 +61,7 @@ public class UsuarioxController {
 
 		Usuario usuariox = Usuarioxrepository.findById(usuarioxId)
 				.orElseThrow(() -> new ResourceNotFoundException("Usuario", "id", usuarioxId));
-		
+
 		usuariox.setNombre_usuario(usuarioxDetails.getNombre_usuario());
 		usuariox.setApellido_usuario(usuarioxDetails.getApellido_usuario());
 		usuariox.setFecha_nacimiento(usuarioxDetails.getFecha_nacimiento());
@@ -74,7 +73,11 @@ public class UsuarioxController {
 		usuariox.setEstadousuario(usuarioxDetails.getEstadousuario());
 		usuariox.setDistrito(usuarioxDetails.getDistrito());
 		usuariox.setClaveApi(usuarioxDetails.getClaveApi());
-	
+		usuariox.setCliente(usuarioxDetails.getCliente());
+		usuariox.setPasswordResetTokens(usuarioxDetails.getPasswordResetTokens());
+		usuariox.setUseranuncios(usuarioxDetails.getUseranuncios());
+		usuariox.setVendedor(usuarioxDetails.getVendedor());
+
 		Usuario updatedUsuariox = Usuarioxrepository.save(usuariox);
 
 		LOGGER.info("METHOD: 'updateUsuariox'--PARAMS: '" + usuarioxDetails + "'");

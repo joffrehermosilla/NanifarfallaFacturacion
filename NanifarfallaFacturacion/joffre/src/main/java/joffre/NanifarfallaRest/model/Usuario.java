@@ -64,12 +64,22 @@ public class Usuario {
 
 	@OneToMany(mappedBy = "usuario")
 	private Collection<Vendedor> vendedor = new ArrayList<>();
-
 	@OneToMany(mappedBy = "mUsuario")
 	private Collection<Cliente_tiene_pedido> cliente_tiene_pedido = new ArrayList<>();
 
 	@OneToMany(mappedBy = "mUsuario", fetch = FetchType.EAGER)
 	private Collection<UserAnuncios> useranuncios = new ArrayList<>();
+
+	@OneToMany(mappedBy = "mUsuario", fetch = FetchType.EAGER)
+	private Collection<PasswordRessetToken> passwordResetTokens = new ArrayList<>();
+
+	public Collection<PasswordRessetToken> getPasswordResetTokens() {
+		return passwordResetTokens;
+	}
+
+	public void setPasswordResetTokens(Collection<PasswordRessetToken> passwordResetTokens) {
+		this.passwordResetTokens = passwordResetTokens;
+	}
 
 	public Collection<Cliente> getCliente() {
 		return cliente;

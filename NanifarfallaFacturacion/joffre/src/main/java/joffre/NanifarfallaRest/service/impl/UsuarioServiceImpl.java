@@ -10,20 +10,22 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import joffre.NanifarfallaRest.model.ContactModel;
 import joffre.NanifarfallaRest.model.Distrito;
-import joffre.NanifarfallaRest.model.EstadoUsuario;
+//import joffre.NanifarfallaRest.model.EstadoUsuario;
 import joffre.NanifarfallaRest.model.RequestUsuario;
-import joffre.NanifarfallaRest.model.TipoUsuario;
+//import joffre.NanifarfallaRest.model.TipoUsuario;
 import joffre.NanifarfallaRest.model.Usuario;
 import joffre.NanifarfallaRest.repository.UsuarioRepository;
 import joffre.NanifarfallaRest.service.UsuarioService;
+
 @Component
-public class UsuarioServiceImpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
 	UsuarioRepository usuarioRepository;
+
 	@Override
 	public Usuario getUsuario(int usuarioId) {
 		return usuarioRepository.findById(usuarioId).get();
-		
+
 	}
 
 	@Override
@@ -40,8 +42,8 @@ public class UsuarioServiceImpl implements UsuarioService{
 		usuario.setDireccion_usuario(requestUsuario.getDireccion_usuario());
 		usuario.setPassword_usuario(requestUsuario.getPassword_usuario());
 		Distrito distrito = new Distrito();
-	    TipoUsuario tipoUsuario = new TipoUsuario();
-	    EstadoUsuario estadoUsuario = new EstadoUsuario();
+		// TipoUsuario tipoUsuario = new TipoUsuario();
+		// EstadoUsuario estadoUsuario = new EstadoUsuario();
 		distrito.setCodigo_distrito(Integer.valueOf(requestUsuario.getDistrito()));
 		usuario.setDistrito(distrito);
 		return null;
@@ -49,11 +51,11 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@Override
 	public ObjectNode updateUsuarioEstado(int estado, int idUsuario) {
-		//		int result = usuarioRepository.updateEstado(estado, idUsuario);
+		// int result = usuarioRepository.updateEstado(estado, idUsuario);
 //		boolean resultado = result == 1 ? true : false;
 		ObjectNode objectNode = new ObjectMapper().createObjectNode();
 //		objectNode.put("resultado", resultado);
-		return objectNode;	
+		return objectNode;
 	}
 
 	@Override
@@ -74,7 +76,5 @@ public class UsuarioServiceImpl implements UsuarioService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }
