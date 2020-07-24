@@ -26,6 +26,120 @@ public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo_producto;
+	@NotBlank
+	private String colores_producto;
+
+	@NotBlank
+	private String qr_producto;
+
+	@NotBlank
+	private Double pvv_producto;
+
+	@NotBlank
+	private Double pvf_producto;
+	@NotBlank
+	private Date ingreso_almacen_producto;
+
+	@NotBlank
+	private Date salida_almacen_producto;
+
+	@NotBlank
+	private String stock_producto;
+
+	@NotBlank
+	private String preparacion_producto;
+
+	@NotBlank
+	private String foto_ruta;
+
+	@NotBlank
+	private String claveApi;
+
+	@NotBlank
+	String nombre_producto;
+
+	@NotBlank
+	Date version;
+	@NotBlank
+	String foto_ruta1;
+	@NotBlank
+	String foto_ruta2;
+	@NotBlank
+	String foto_ruta3;
+	@NotBlank
+	String foto_ruta4;
+
+	public String getNombre_producto() {
+		return nombre_producto;
+	}
+
+	public void setNombre_producto(String nombre_producto) {
+		this.nombre_producto = nombre_producto;
+	}
+
+	public Date getVersion() {
+		return version;
+	}
+
+	public void setVersion(Date version) {
+		this.version = version;
+	}
+
+	public String getFoto_ruta1() {
+		return foto_ruta1;
+	}
+
+	public void setFoto_ruta1(String foto_ruta1) {
+		this.foto_ruta1 = foto_ruta1;
+	}
+
+	public String getFoto_ruta2() {
+		return foto_ruta2;
+	}
+
+	public void setFoto_ruta2(String foto_ruta2) {
+		this.foto_ruta2 = foto_ruta2;
+	}
+
+	public String getFoto_ruta3() {
+		return foto_ruta3;
+	}
+
+	public void setFoto_ruta3(String foto_ruta3) {
+		this.foto_ruta3 = foto_ruta3;
+	}
+
+	public String getFoto_ruta4() {
+		return foto_ruta4;
+	}
+
+	public void setFoto_ruta4(String foto_ruta4) {
+		this.foto_ruta4 = foto_ruta4;
+	}
+
+	public Linea getmLinea() {
+		return mLinea;
+	}
+
+	public void setmLinea(Linea mLinea) {
+		this.mLinea = mLinea;
+	}
+
+	public TipoProducto getmTipoproducto() {
+		return mTipoproducto;
+	}
+
+	public void setmTipoproducto(TipoProducto mTipoproducto) {
+		this.mTipoproducto = mTipoproducto;
+	}
+
+	public EstadoProducto getmEstadoproducto() {
+		return mEstadoproducto;
+	}
+
+	public void setmEstadoproducto(EstadoProducto mEstadoproducto) {
+		this.mEstadoproducto = mEstadoproducto;
+	}
 
 	@JoinColumn(name = "fkcodigo_linea", referencedColumnName = "codigo_linea")
 	@ManyToOne
@@ -47,21 +161,6 @@ public class Producto {
 
 	@OneToMany(mappedBy = "mProducto")
 	private Collection<RecetaProductotieneInsumo> recetasproductosinsumos = new ArrayList<>();
-
-	@NotBlank
-	private Date ingreso_almacen_producto;
-
-	@NotBlank
-	private Date salida_almacen_producto;
-
-	@NotBlank
-	private String stock_producto;
-
-	@NotBlank
-	private String preparacion_producto;
-
-	@NotBlank
-	private String foto_ruta;
 
 	public int getCodigo_producto() {
 		return codigo_producto;
@@ -190,20 +289,5 @@ public class Producto {
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
 	}
-
-	@NotBlank
-	private String colores_producto;
-
-	@NotBlank
-	private String qr_producto;
-
-	@NotBlank
-	private Double pvv_producto;
-
-	@NotBlank
-	private Double pvf_producto;
-
-	@NotBlank
-	private String claveApi;
 
 }

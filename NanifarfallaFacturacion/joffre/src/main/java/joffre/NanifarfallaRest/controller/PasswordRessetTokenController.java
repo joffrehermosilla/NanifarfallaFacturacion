@@ -3,7 +3,7 @@ package joffre.NanifarfallaRest.controller;
 import java.util.List;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
+
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

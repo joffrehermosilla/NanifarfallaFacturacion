@@ -1,0 +1,7 @@
+package joffre.NanifarfallaRest.repository.auditorias;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AuditoriaProductoRepository extends JpaRepository<AuditoriaProducto, Integer> {
+
+}

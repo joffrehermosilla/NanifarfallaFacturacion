@@ -15,10 +15,14 @@
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaUserAnuncio"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaIgvVenta"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaIgvVentaRepository"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.PasswordRessetTokenRepository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.PasswordRessetToken"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.ProductoRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.Producto"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaProductoRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaProducto"/>
 </qualifiedTypeNameHistroy>
