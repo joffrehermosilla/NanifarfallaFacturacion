@@ -6,8 +6,22 @@
 			<item value="org.eclipse.m2e"/>
 		</list>
 	</section>
+<<<<<<< HEAD
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="593"/>
 		<item key="DIALOG_Y_ORIGIN" value="157"/>
+=======
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="dialogHeight" value="-1"/>
+		<item key="dialogWidth" value="-1"/>
+		<list key="orderedElements">
+		</list>
+		<list key="orderedProviders">
+		</list>
+		<list key="textEntries">
+		</list>
+		<list key="textArray">
+		</list>
+>>>>>>> segunda colaboracion facturacion Carlox
 	</section>
 </section>

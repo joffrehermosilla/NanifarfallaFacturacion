@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 GitRepositoriesView.GitDirectories=D\:\\source tree\\proyectos\\proyecto6\\.git;
+=======
+GitRepositoriesView.GitDirectories=C\:\\source tree\\proyectos\\proyecto2\\.git;
+>>>>>>> segunda colaboracion facturacion Carlox
 GitRepositoriesView.GitDirectories.relative=.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1

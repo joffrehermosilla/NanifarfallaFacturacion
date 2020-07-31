@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+<<<<<<< HEAD
 <libraryInfo home="C:\Program Files\Java\jdk1.8.0_241" version="1.8.0_241">
 <bootpath>
 <entry path="C:\Program Files\Java\jdk1.8.0_241\jre\lib\resources.jar"/>
@@ -17,6 +18,25 @@
 </extensionDirs>
 <endorsedDirs>
 <entry path="C:\Program Files\Java\jdk1.8.0_241\jre\lib\endorsed"/>
+=======
+<libraryInfo home="C:\Program Files (x86)\Java\jdk 1.8" version="1.8.0_191">
+<bootpath>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\resources.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\rt.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\jsse.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\jce.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\charsets.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\jfr.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files (x86)\Java\jdk 1.8\lib\endorsed"/>
+>>>>>>> segunda colaboracion facturacion Carlox
 </endorsedDirs>
 </libraryInfo>
 </libraryInfos>

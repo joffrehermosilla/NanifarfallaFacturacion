@@ -1,5 +1,9 @@
 PROBLEMS_FILTERS_MIGRATE=true
 eclipse.preferences.version=1
+<<<<<<< HEAD
 platformState=1580534851220
+=======
+platformState=1566683903435
+>>>>>>> segunda colaboracion facturacion Carlox
 quickStart=false
 tipsAndTricks=true
