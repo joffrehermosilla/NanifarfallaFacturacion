@@ -19,6 +19,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+
 @Entity
 @Table(name = "insumo")
 @EntityListeners(AuditingEntityListener.class)
@@ -30,17 +31,17 @@ public class Insumo {
 	@JoinColumn(name = "fk_codigo_estadoinsumo", referencedColumnName = "codigo_estadoinsumo")
 	@ManyToOne
 	@JsonBackReference
-	EstadoInsumo mEstadoinsumo;
+	 EstadoInsumo mEstadoinsumo;
 
 	@JoinColumn(name = "fkcodigo_tipoinsumo", referencedColumnName = "codigo_tipoinsumo")
 	@ManyToOne
 	@JsonBackReference
-	TipoInsumo mTipoinsumo;
+	 TipoInsumo mTipoinsumo;
 
 	@JoinColumn(name = "fkcodigo_presentacioninsumo", referencedColumnName = "codigo_presentacioninsumo")
 	@ManyToOne
 	@JsonBackReference
-	PresentacionInsumo mPresentacion_insumo;
+	 PresentacionInsumo mPresentacion_insumo;
 
 	@JoinColumn(name = "fkcodigo_loteinsumo", referencedColumnName = "codigo_loteinsumo")
 	@ManyToOne
@@ -103,53 +104,6 @@ public class Insumo {
 
 	@NotBlank
 	private String claveApi;
-
-	@NotBlank
-	private Date version;
-
-	public Insumo() {
-
-	}
-
-	public EstadoInsumo getmEstadoinsumo() {
-		return mEstadoinsumo;
-	}
-
-	public void setmEstadoinsumo(EstadoInsumo mEstadoinsumo) {
-		this.mEstadoinsumo = mEstadoinsumo;
-	}
-
-	public TipoInsumo getmTipoinsumo() {
-		return mTipoinsumo;
-	}
-
-	public void setmTipoinsumo(TipoInsumo mTipoinsumo) {
-		this.mTipoinsumo = mTipoinsumo;
-	}
-
-	public PresentacionInsumo getmPresentacion_insumo() {
-		return mPresentacion_insumo;
-	}
-
-	public void setmPresentacion_insumo(PresentacionInsumo mPresentacion_insumo) {
-		this.mPresentacion_insumo = mPresentacion_insumo;
-	}
-
-	public LoteInsumo getmLoteinsumo() {
-		return mLoteinsumo;
-	}
-
-	public void setmLoteinsumo(LoteInsumo mLoteinsumo) {
-		this.mLoteinsumo = mLoteinsumo;
-	}
-
-	public Date getVersion() {
-		return version;
-	}
-
-	public void setVersion(Date version) {
-		this.version = version;
-	}
 
 	public int getCodigo_insumo() {
 		return codigo_insumo;

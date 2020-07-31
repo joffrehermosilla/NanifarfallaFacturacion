@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 INDEX VERSION 1.131+D:\source tree\proyectos\proyecto6\.metadata\.plugins\org.eclipse.jdt.core
 3174140661.index
 3815954666.index
@@ -87,8 +86,8 @@ INDEX VERSION 1.131+D:\source tree\proyectos\proyecto6\.metadata\.plugins\org.ec
 365680358.index
 1430442637.index
 2998956003.index
-192565416.index
 3254732882.index
+192565416.index
 4211705379.index
 2985262129.index
 2899169882.index
@@ -109,11 +108,11 @@ INDEX VERSION 1.131+D:\source tree\proyectos\proyecto6\.metadata\.plugins\org.ec
 4249445652.index
 1929412782.index
 2110414956.index
+2268151091.index
 1237651286.index
-1923062325.index
 2757596041.index
 3182427935.index
-2268151091.index
+1923062325.index
 3081946994.index
 712625562.index
 1517767885.index
@@ -123,13 +122,9 @@ INDEX VERSION 1.131+D:\source tree\proyectos\proyecto6\.metadata\.plugins\org.ec
 2538291475.index
 675558653.index
 2459819204.index
-2894849925.index
 1029792095.index
+2894849925.index
 1642946294.index
 3637000597.index
 3561198236.index
 586709021.index
-=======
-INDEX VERSION 1.131+C:\source tree\proyectos\proyecto2\.metadata\.plugins\org.eclipse.jdt.core
-1364761121.index
->>>>>>> segunda colaboracion facturacion Carlox

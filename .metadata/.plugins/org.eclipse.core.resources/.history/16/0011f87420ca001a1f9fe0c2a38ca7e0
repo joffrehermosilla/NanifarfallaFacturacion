@@ -1,7 +1,0 @@
-package joffre.NanifarfallaRest.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface PasswordRessetTokenRepository extends JpaRepository<PasswordRessetToken, Integer> {
-
-}
