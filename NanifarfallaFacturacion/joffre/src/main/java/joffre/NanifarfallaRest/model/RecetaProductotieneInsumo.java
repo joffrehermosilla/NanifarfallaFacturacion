@@ -66,6 +66,48 @@ public class RecetaProductotieneInsumo {
 	@NotBlank
 	private Double peso;
 
+	@NotBlank
+	private String claveApi;
+
+	@NotBlank
+	private Date version;
+
+	public RecetaProductotieneInsumo() {
+
+	}
+
+	public Producto getmProducto() {
+		return mProducto;
+	}
+
+	public void setmProducto(Producto mProducto) {
+		this.mProducto = mProducto;
+	}
+
+	public Insumo getmInsumo() {
+		return mInsumo;
+	}
+
+	public void setmInsumo(Insumo mInsumo) {
+		this.mInsumo = mInsumo;
+	}
+
+	public ElaboracionProducto getmElaboracionproducto() {
+		return mElaboracionproducto;
+	}
+
+	public void setmElaboracionproducto(ElaboracionProducto mElaboracionproducto) {
+		this.mElaboracionproducto = mElaboracionproducto;
+	}
+
+	public Date getVersion() {
+		return version;
+	}
+
+	public void setVersion(Date version) {
+		this.version = version;
+	}
+
 	public int getCodigo_rece_produ_ti_insumo() {
 		return codigo_rece_produ_ti_insumo;
 	}
@@ -177,8 +219,5 @@ public class RecetaProductotieneInsumo {
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
 	}
-
-	@NotBlank
-	private String claveApi;
 
 }

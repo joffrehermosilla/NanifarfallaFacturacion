@@ -2,4 +2,10 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.InsumoRepository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.Insumo"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaInsumoRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaInsumo"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaRecetaProductoTieneInsumoRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaRecetaProductoTieneInsumo"/>
 </qualifiedTypeNameHistroy>
