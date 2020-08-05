@@ -1,0 +1,32 @@
+package joffre.NanifarfallaRest.model.auditorias;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "audi_producto_tiene_color")
+@EntityListeners(AuditingEntityListener.class)
+public class AuditoriaProductoTieneColor {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_audiproducto_tienecolor;
+	String usuario;
+	Date fecha_cambio;
+	int fkcodigo_color_old;
+	int fkcodigo_producto_old;
+	String claveApi_old;
+	Date version_old;
+	int fkcodigo_color_new;
+	int fkcodigo_producto_new;
+	String claveApi_new;
+	Date version_new;
+
+}

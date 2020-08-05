@@ -4,8 +4,18 @@
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.Insumo"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaInsumoRepository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaInsumo"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaRecetaProductoTieneInsumoRepository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaRecetaProductoTieneInsumo"/>
+<fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.ProductoTieneColoresRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.ProductoTieneColores"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaProductoTieneColorRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaProductoTieneColor"/>
 </qualifiedTypeNameHistroy>
