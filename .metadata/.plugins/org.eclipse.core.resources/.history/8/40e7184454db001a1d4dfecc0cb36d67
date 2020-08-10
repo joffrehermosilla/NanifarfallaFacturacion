@@ -87,7 +87,11 @@ public class ClientetienePedidoController {
         clientetienepedido.setmUsuario(clientetienepedidoDetails.getmUsuario());
         clientetienepedido.setVendedor(clientetienepedidoDetails.getmVendedor());
         clientetienepedido.setVersion(clientetienepedidoDetails.getVersion());
-        clientetienepedido.setClaveApi(clientetienepedidoDetails.getClaveApi());
+        
+        
+        
+        
+		clientetienepedido.setClaveApi(clientetienepedidoDetails.getClaveApi());
 
 		Cliente_tiene_pedido updatedClientetienePedido = clientetienepedidorepository.save(clientetienepedido);
 		LOGGER.info("METHOD: 'updateClienteTienePedido'--PARAMS: '" + clientetienepedidoDetails + "'");

@@ -1,0 +1,93 @@
+package joffre.NanifarfallaRest.model.auditorias;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "audi_cliente_tiene_pedido")
+@EntityListeners(AuditingEntityListener.class)
+public class AuditoriaClienteTienePedido {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_audi_cliente_tiene_pedido;
+	@NotBlank
+	String usuario;
+	@NotBlank
+	Date fecha_cambio;
+	@NotBlank
+	int fkcodigo_usuario_old;
+	@NotBlank
+	int fkcodigo_cliente_old;
+	@NotBlank
+	int fkcodigo_vendedor_old;
+	@NotBlank
+	int fkcodigo_igv_venta_old;
+	@NotBlank
+	int fkcodigo_promocion_venta_old;
+	@NotBlank
+	int fkcodigo_estado_cliente_tiene_pedido_old;
+	@NotBlank
+	int fkcodigo_factura_cliente_tiene_pedido_old;
+	@NotBlank
+	Double descuento_web_pedido_old;
+	@NotBlank
+	Double precio_uni_desc_igv_old;
+	@NotBlank
+	Double precio_uni_desc_sin_igv_old;
+	@NotBlank
+	Date fecha_pedido_old;
+	@NotBlank
+	Date fecha_entrega_old;
+	@NotBlank
+	int cantidad_producto_old;
+	@NotBlank
+	Double monto_por_descuentos_old;
+	@NotBlank
+	String claveApi_old;
+	@NotBlank
+	Date version_old;
+	@NotBlank
+	int fkcodigo_usuario_new;
+	@NotBlank
+	int fkcodigo_cliente_new;
+	@NotBlank
+	int fkcodigo_vendedor_new;
+	@NotBlank
+	int fkcodigo_igv_venta_new;
+	@NotBlank
+	int fkcodigo_promocion_venta_new;
+	@NotBlank
+	int fkcodigo_estado_cliente_tiene_pedido_new;
+	@NotBlank
+	int fkcodigo_factura_cliente_tiene_pedido_new;
+	@NotBlank
+	Double descuento_web_pedido_new;
+	@NotBlank
+	Double precio_uni_desc_igv_new;
+	@NotBlank
+	Double precio_uni_desc_sin_igv_new;
+	@NotBlank
+	Date fecha_pedido_new;
+	@NotBlank
+	Date fecha_entrega_new;
+	@NotBlank
+	int cantidad_producto_new;
+	@NotBlank
+	Double monto_por_descuentos_new;
+	@NotBlank
+	String claveApi_new;
+	@NotBlank
+	Date version_new;
+	
+	
+	
+}
