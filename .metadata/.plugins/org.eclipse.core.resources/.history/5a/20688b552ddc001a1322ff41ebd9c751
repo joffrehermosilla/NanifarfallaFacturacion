@@ -1,0 +1,47 @@
+package joffre.NanifarfallaRest.controller.auditorias;
+
+import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import joffre.NanifarfallaRest.exception.ResourceNotFoundException;
+
+import joffre.NanifarfallaRest.repository.auditorias.AuditoriaClienteRepository;
+@RestController
+@RequestMapping("/apiAuditoriaCliente")
+public class AuditoriaClienteController {
+
+	private static final Log LOGGER = LogFactory.getLog(AuditoriaClienteController.class);
+
+	@Autowired
+	AuditoriaClienteRepository auditoriaClienteRepository;
+	
+	@GetMapping("/auditoriaClientess")
+	public List<AuditoriaCliente> getAllAuditoriaAreas() {
+		LOGGER.info("INFO TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return auditoriaClienteRepository.findAll();
+	}
+
+	@GetMapping("/auditoriaarea/{id}")
+	public AuditoriaArea getAuditoriaAreaById(@PathVariable(value = "id") int audiareaId) {
+		LOGGER.info("INFO  TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return audiareaRepository.findById(audiareaId)
+				.orElseThrow(() -> new ResourceNotFoundException("AuditoriaArea", "id", audiareaId));
+	}
+
+	// http://localhost:8085/nanifarfalla-service/swagger-ui.html
+
+	
+}

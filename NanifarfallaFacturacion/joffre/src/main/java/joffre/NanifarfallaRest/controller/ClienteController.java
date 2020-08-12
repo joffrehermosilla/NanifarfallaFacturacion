@@ -74,6 +74,11 @@ public class ClienteController {
         cliente.setDni_cliente(clienteDetails.getDni_cliente());
         cliente.setFecha_empadronamiento_cliente(clienteDetails.getFecha_empadronamiento_cliente());
 		cliente.setClaveApi(clienteDetails.getClaveApi());
+		cliente.setCliente_tiene_pedido(clienteDetails.getCliente_tiene_pedido());
+		cliente.setmEstado_cliente(clienteDetails.getmEstado_cliente());
+		cliente.setmRegimen_cliente(clienteDetails.getmRegimen_cliente());
+		cliente.setmUsuario(clienteDetails.getmUsuario());
+		cliente.setVersion(clienteDetails.getVersion());
 
 		Cliente updatedEstadoCliente = clienterepository.save(cliente);
 		LOGGER.info("METHOD: 'updateCliente'--PARAMS: '" + clienteDetails + "'");

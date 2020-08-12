@@ -68,6 +68,40 @@ public class Cliente {
 
 	@NotBlank
 	private String claveApi;
+	@NotBlank
+	private Date version;
+
+	public Usuario getmUsuario() {
+		return mUsuario;
+	}
+
+	public void setmUsuario(Usuario mUsuario) {
+		this.mUsuario = mUsuario;
+	}
+
+	public RegimenCliente getmRegimen_cliente() {
+		return mRegimen_cliente;
+	}
+
+	public void setmRegimen_cliente(RegimenCliente mRegimen_cliente) {
+		this.mRegimen_cliente = mRegimen_cliente;
+	}
+
+	public EstadoCliente getmEstado_cliente() {
+		return mEstado_cliente;
+	}
+
+	public void setmEstado_cliente(EstadoCliente mEstado_cliente) {
+		this.mEstado_cliente = mEstado_cliente;
+	}
+
+	public Date getVersion() {
+		return version;
+	}
+
+	public void setVersion(Date version) {
+		this.version = version;
+	}
 
 	public int getCodigo_cliente() {
 		return codigo_cliente;
