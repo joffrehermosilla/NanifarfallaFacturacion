@@ -26,7 +26,8 @@ public class Vendedor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int codigo_vendedor;
-
+	
+	
 	public int getCodigo_vendedor() {
 		return codigo_vendedor;
 	}
@@ -79,23 +80,26 @@ public class Vendedor {
 	@ManyToOne
 	@JsonBackReference
 	Usuario usuario;
-
+	
 	@JoinColumn(name = "fkcodigo_area", referencedColumnName = "codigo_area")
 	@ManyToOne
 	@JsonBackReference
 	Area area;
-
+	
 	@OneToMany(mappedBy = "mVendedor")
 	private Collection<Cliente_tiene_pedido> cliente_tiene_pedido = new ArrayList<>();
-
+	
 	@NotBlank
 	private String codigo_venta_vendedor;
 
 	@NotBlank
 	private String claveApi;
-
+	
+	
+	
 	@NotBlank
 	private Date version;
+
 
 	public Date getVersion() {
 		return version;
@@ -104,5 +108,14 @@ public class Vendedor {
 	public void setVersion(Date version) {
 		this.version = version;
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

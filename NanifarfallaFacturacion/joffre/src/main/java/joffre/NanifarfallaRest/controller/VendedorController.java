@@ -68,6 +68,9 @@ public class VendedorController {
 		vendedor.setCliente_tiene_pedido(vendedorDetails.getCliente_tiene_pedido());
 		vendedor.setCodigo_venta_vendedor(vendedorDetails.getCodigo_venta_vendedor());
 		vendedor.setClaveApi(vendedorDetails.getClaveApi());
+		vendedor.setUsuario(vendedorDetails.getUsuario());
+		vendedor.setVersion(vendedorDetails.getVersion());
+
 		Vendedor updatedVendedor = vendedorrepository.save(vendedor);
 		LOGGER.info("METHOD: 'updateVendedor'--PARAMS: '" + vendedorDetails + "'");
 		LOGGER.warn("WARNING  TRACE");

@@ -2,11 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-<<<<<<< HEAD
 			<item value="D:\source tree\proyectos\proyecto6"/>
-=======
-			<item value="C:\source tree\proyectos\proyecto2\NanifarfallaFacturacion"/>
->>>>>>> segunda colaboracion facturacion Carlox
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -17,11 +13,4 @@
 			<item value="[name]"/>
 		</list>
 	</section>
-<<<<<<< HEAD
-	<section name="org.eclipse.m2e.core.pom.overview">
-	</section>
-	<section name="org.eclipse.m2e.core.pom.dependencies">
-	</section>
-=======
->>>>>>> segunda colaboracion facturacion Carlox
 </section>
