@@ -2,8 +2,15 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaClienteRepository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaCliente"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaVendedorRepository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaVendedor"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaProductoxPedidoRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaProductoxPedido"/>
+<fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.UserRolesRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.UserRoles"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaUserRoleRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaUserRole"/>
 </qualifiedTypeNameHistroy>

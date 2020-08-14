@@ -1,0 +1,57 @@
+package joffre.NanifarfallaRest.model.auditorias;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "audi_producto_por_pedido")
+@EntityListeners(AuditingEntityListener.class)
+public class AuditoriaProductoxPedido {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_audi_producto_por_pedido;
+	@NotBlank
+	int fkcodigo_pedido_web_old;
+	@NotBlank
+	int fkcodigo_producto_old;
+	@NotBlank
+	Double descuento_promocion_old;
+	@NotBlank
+	Double valor_neto_old;
+	@NotBlank
+	Double valor_con_igv_old;
+	@NotBlank
+	int cantidad_producto_old;
+	@NotBlank
+	Date version_old;
+	@NotBlank
+	int fkcodigo_pedido_web_new;
+	@NotBlank
+	int fkcodigo_producto_new;
+	@NotBlank
+	Double descuento_promocion_new;
+	@NotBlank
+	Double valor_neto_new;
+	@NotBlank
+	Double valor_con_igv_new;
+	@NotBlank
+	int cantidad_producto_new;
+	@NotBlank
+	Date version_new;
+	
+	
+	
+	
+	
+	
+
+}

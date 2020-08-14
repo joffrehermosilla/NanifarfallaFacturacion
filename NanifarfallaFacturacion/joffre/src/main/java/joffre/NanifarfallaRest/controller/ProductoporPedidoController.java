@@ -63,8 +63,16 @@ public class ProductoporPedidoController {
 		ProductoxPedido productoxpedido = productoxpedidorepository.findById(productoxpedidoId)
 				.orElseThrow(() -> new ResourceNotFoundException("ProductoxPedido", "id", productoxpedidoId));
 
-
 		productoxpedido.setClaveApi(productoxpedidoDetails.getClaveApi());
+		productoxpedido.setCantidad_producto(productoxpedidoDetails.getCantidad_producto());
+		productoxpedido.setClientetienepedido(productoxpedidoDetails.getClientetienepedido());
+		productoxpedido.setDescuento_promocion(productoxpedidoDetails.getDescuento_promocion());
+		productoxpedido.setmClientetienepedido(productoxpedidoDetails.getmClientetienepedido());
+		productoxpedido.setmProducto(productoxpedidoDetails.getmProducto());
+		productoxpedido.setProducto(productoxpedidoDetails.getProducto());
+		productoxpedido.setValor_con_igv(productoxpedidoDetails.getValor_con_igv());
+		productoxpedido.setValor_neto(productoxpedidoDetails.getValor_neto());
+		productoxpedido.setVersion(productoxpedidoDetails.getVersion());
 
 		ProductoxPedido updatedProductoxPedido = productoxpedidorepository.save(productoxpedido);
 		LOGGER.info("METHOD: 'updateProductoxPedido'--PARAMS: '" + productoxpedidoDetails + "'");
