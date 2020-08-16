@@ -1,4 +1,5 @@
 package joffre.NanifarfallaRest.model;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -15,29 +16,15 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "ciudad")
 @EntityListeners(AuditingEntityListener.class)
 public class Ciudad {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int codigo_ciudad;
-
-	@OneToMany(mappedBy = "ciudad")
-	private Collection<Distrito> distrito = new ArrayList<>();
-
-
-
-	public Collection<Distrito> getDistrito() {
-		return distrito;
-	}
-
-	public void setDistrito(Collection<Distrito> distrito) {
-		this.distrito = distrito;
-	}
-
 	String nombre_ciudad;
 
 	String claveApi;
@@ -46,6 +33,17 @@ public class Ciudad {
 	@ManyToOne
 	@JsonBackReference
 	Provincia provincia;
+
+	@OneToMany(mappedBy = "ciudad")
+	private Collection<Distrito> distrito = new ArrayList<>();
+
+	public Collection<Distrito> getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(Collection<Distrito> distrito) {
+		this.distrito = distrito;
+	}
 
 	public Provincia getProvincia() {
 		return provincia;
@@ -79,7 +77,4 @@ public class Ciudad {
 		this.claveApi = claveApi;
 	}
 
-	
-	
-	
 }

@@ -24,6 +24,8 @@ public class EstadoCliente {
 
 	@OneToMany(mappedBy = "mEstado_cliente")
 	private Collection<Cliente> cliente = new ArrayList<>();
+	
+	
 	@NotBlank
 	private String nombre_estadocliente;
 

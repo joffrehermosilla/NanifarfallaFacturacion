@@ -1,0 +1,39 @@
+package joffre.NanifarfallaRest.model.auditorias;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "audi_estado_catalogo")
+@EntityListeners(AuditingEntityListener.class)
+public class AuditoriaCatalogo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_audi_estado_catalogo;
+	@NotBlank
+	String usuario;
+	@NotBlank
+	Date fecha_cambio;
+	@NotBlank
+	String descripcion_old;
+	@NotBlank
+	String claveApi_old;
+	@NotBlank
+	Date version_old;
+	@NotBlank
+	String descripcion_new;
+	@NotBlank
+	String claveApi_new;
+	@NotBlank
+	Date version_new;
+
+}

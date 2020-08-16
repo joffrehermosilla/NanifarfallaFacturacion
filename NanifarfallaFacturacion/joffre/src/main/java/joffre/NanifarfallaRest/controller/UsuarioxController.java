@@ -77,6 +77,10 @@ public class UsuarioxController {
 		usuariox.setPasswordResetTokens(usuarioxDetails.getPasswordResetTokens());
 		usuariox.setUseranuncios(usuarioxDetails.getUseranuncios());
 		usuariox.setVendedor(usuarioxDetails.getVendedor());
+		usuariox.setCliente_tiene_pedido(usuarioxDetails.getCliente_tiene_pedido());
+		usuariox.setTipousuario(usuarioxDetails.getTipousuario());
+		usuariox.setUseranuncios(usuarioxDetails.getUseranuncios());
+		usuariox.setVerificationToken(usuarioxDetails.getVerificationToken());
 
 		Usuario updatedUsuariox = Usuarioxrepository.save(usuariox);
 

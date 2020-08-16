@@ -1,0 +1,94 @@
+package joffre.NanifarfallaRest.controller;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import joffre.NanifarfallaRest.exception.ResourceNotFoundException;
+import joffre.NanifarfallaRest.model.EstadoCatalogo;
+import joffre.NanifarfallaRest.repository.EstadoCatalogoRepository;
+
+@RestController
+@RequestMapping("/apiEstadocatalogo")
+public class EstadoCatalogoController {
+
+	private static final Log LOGGER = LogFactory.getLog(EstadoCatalogoController.class);
+	@Autowired
+	EstadoCatalogoRepository estadoCatalogoRepository;
+
+	@GetMapping("/EstadoCatalogo")
+	public List<EstadoCatalogo> getAllEstadoCatalogo() {
+		LOGGER.info("INFO TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return estadoCatalogoRepository.findAll();
+	}
+
+	@PostMapping("/AddEstadoCatalogo")
+	public EstadoCatalogo createEstadoCatalogo(@Valid @RequestBody EstadoCatalogo alerta) {
+		LOGGER.info("INFO TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return alertaRepository.save(alerta);
+	}
+
+	@GetMapping("/EstadoCatalogo/{id}")
+	public EstadoCatalogo getEstadoCatalogoById(@PathVariable(value = "id") int alertaId) {
+		LOGGER.info("INFO  TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return alertaRepository.findById(alertaId)
+				.orElseThrow(() -> new ResourceNotFoundException("EstadoCatalogo", "id", alertaId));
+	}
+
+	@PutMapping("/Alerta/{id}")
+	public EstadoCatalogo updateEstadoCatalogo(@PathVariable(value = "id") int alertaId,
+			@Valid @RequestBody EstadoCatalogo alertaDetails) {
+
+		EstadoCatalogo alerta = alertaRepository.findById(alertaId)
+				.orElseThrow(() -> new ResourceNotFoundException("EstadoCatalogo", "id", alertaId));
+
+		alerta.setMensaje_alerta(alertaDetails.getMensaje_alerta());
+		alerta.setmTipoAlerta(alertaDetails.getmTipoAlerta());
+		alerta.setPrecio(alertaDetails.getPrecio());
+		alerta.setCategoria(alertaDetails.getCategoria());
+		alerta.setVersion(alertaDetails.getVersion());
+
+		EstadoCatalogo updatedAlerta = alertaRepository.save(alerta);
+		LOGGER.info("METHOD: 'updateEstadoCatalogo'--PARAMS: '" + alertaDetails + "'");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return updatedAlerta;
+	}
+
+	@DeleteMapping("/EstadoCatalogo/{id}")
+	public ResponseEntity<?> deleteAlerta(@PathVariable(value = "id") int alertaId) {
+		EstadoCatalogo alerta = alertaRepository.findById(alertaId)
+				.orElseThrow(() -> new ResourceNotFoundException("EstadoCatalogo", "id", alertaId));
+
+		alertaRepository.delete(alerta);
+		LOGGER.info("METHOD: 'deleteEstadoCatalogo'--PARAMS: '" + alerta + "'");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return ResponseEntity.ok().build();
+	}
+	// http://localhost:8085/nanifarfalla-service/swagger-ui.html
+}

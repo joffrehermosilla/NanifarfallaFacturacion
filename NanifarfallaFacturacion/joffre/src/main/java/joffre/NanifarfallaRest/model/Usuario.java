@@ -73,6 +73,17 @@ public class Usuario {
 	@OneToMany(mappedBy = "mUsuario", fetch = FetchType.EAGER)
 	private Collection<PasswordRessetToken> passwordResetTokens = new ArrayList<>();
 
+	@OneToMany(mappedBy = "mUsuario", fetch = FetchType.EAGER)
+	private Collection<VerificationToken> verificationToken = new ArrayList<>();
+
+	public Collection<VerificationToken> getVerificationToken() {
+		return verificationToken;
+	}
+
+	public void setVerificationToken(Collection<VerificationToken> verificationToken) {
+		this.verificationToken = verificationToken;
+	}
+
 	public Collection<PasswordRessetToken> getPasswordResetTokens() {
 		return passwordResetTokens;
 	}

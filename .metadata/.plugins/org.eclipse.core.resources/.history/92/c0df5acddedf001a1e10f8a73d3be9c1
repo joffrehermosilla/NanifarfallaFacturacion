@@ -1,0 +1,7 @@
+package joffre.NanifarfallaRest.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EstadoCatalogoRepository extends JpaRepository<EstadoCatalogo, Integer> {
+
+}

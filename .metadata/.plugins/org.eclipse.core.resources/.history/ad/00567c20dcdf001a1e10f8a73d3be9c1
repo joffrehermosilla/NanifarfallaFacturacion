@@ -1,0 +1,36 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "catalogo")
+@EntityListeners(AuditingEntityListener.class)
+public class Catalogo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_catalogo;
+	int cat_codigo_producto;
+	String cat_nombre_producto;
+	String cat_nombre_tipo_producto;
+	Double cat_densidad;
+	Double valor_con_igv;
+	Double cat_valor_neto;
+	Double cat_valor_con_igv;
+	String cat_preparacion_producto;
+	String cat_colores_producto;
+	String cat_nombre_insumo;
+	String cat_modelo_receta_producto;
+	int cantidadMasPedido;
+	Double promedioTotalProd;
+	int fkcodigo_estadoCatalogo;
+	Date version;
+}

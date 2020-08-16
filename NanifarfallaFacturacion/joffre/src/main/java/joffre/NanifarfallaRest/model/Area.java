@@ -19,6 +19,22 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Table(name = "area")
 @EntityListeners(AuditingEntityListener.class)
 public class Area {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_area;
+
+	@NotBlank
+	String nombre_area;
+
+	@NotBlank
+	String claveApi;
+
+	@NotBlank
+	Date version;
+
+	@OneToMany(mappedBy = "area")
+	private Collection<Vendedor> vendedor = new ArrayList<>();
+
 	public int getCodigo_area() {
 		return codigo_area;
 	}
@@ -51,20 +67,6 @@ public class Area {
 		this.vendedor = vendedor;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int codigo_area;
-	
-	
-	@NotBlank
-	String nombre_area;
-
-	@NotBlank
-	String claveApi;
-	
-	@NotBlank
-	Date version;
-	
 	public Date getVersion() {
 		return version;
 	}
@@ -73,6 +75,4 @@ public class Area {
 		this.version = version;
 	}
 
-	@OneToMany(mappedBy = "area")
-	private Collection<Vendedor> vendedor = new ArrayList<>();
 }
