@@ -1,0 +1,5 @@
+package joffre.NanifarfallaRest.repository;
+
+public interface PrivilegeRepository {
+
+}

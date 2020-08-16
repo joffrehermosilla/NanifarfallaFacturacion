@@ -1,0 +1,91 @@
+package joffre.NanifarfallaRest.controller;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import joffre.NanifarfallaRest.exception.ResourceNotFoundException;
+import joffre.NanifarfallaRest.model.Privilege;
+import joffre.NanifarfallaRest.repository.PrivilegeRepository;
+
+@RestController
+@RequestMapping("/apiPrivilege")
+public class PrivilegeController {
+	private static final Log LOGGER = LogFactory.getLog(AreaController.class);
+	@Autowired
+	PrivilegeRepository privilegeRepository;
+
+	@GetMapping("/privileges")
+	public List<Privilege> getAllPrivileges() {
+		LOGGER.info("INFO TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return privilegeRepository.findAll();
+	}
+
+	@PostMapping("/Addprivilege")
+	public Privilege createPrivilege(@Valid @RequestBody Privilege privilege) {
+		LOGGER.info("INFO TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return privilegeRepository.save(privilege);
+	}
+
+	@GetMapping("/privilege/{id}")
+	public Privilege getPrivilegeById(@PathVariable(value = "id") int privilegeId) {
+		LOGGER.info("INFO  TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return privilegeRepository.findById(privilegeId)
+				.orElseThrow(() -> new ResourceNotFoundException("Privilege", "id", privilegeId));
+	}
+
+	@PutMapping("/privileges/{id}")
+	public Privilege updateArea(@PathVariable(value = "id") int privilegeId,
+			@Valid @RequestBody Privilege privilegeDetails) {
+
+		Privilege privilege = privilegeRepository.findById(privilegeId)
+				.orElseThrow(() -> new ResourceNotFoundException("Privilege", "id", privilegeId));
+
+		privilege.setNombre_privilege(privilegeDetails.getNombre_privilege());
+		privilege.setRoleHasPrivileges(privilegeDetails.getRoleHasPrivileges());
+		privilege.setVersion(privilegeDetails.getVersion());
+
+		Privilege updatedprivilege = privilegeRepository.save(privilege);
+		LOGGER.info("METHOD: 'updateArea'--PARAMS: '" + privilegeDetails + "'");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return updatedprivilege;
+	}
+
+	@DeleteMapping("/area/{id}")
+	public ResponseEntity<?> deletePrivilege(@PathVariable(value = "id") int privilegeId) {
+		Privilege area = privilegeRepository.findById(privilegeId)
+				.orElseThrow(() -> new ResourceNotFoundException("Privilege", "id", privilegeId));
+
+		privilegeRepository.delete(area);
+		LOGGER.info("METHOD: 'deletePrivilege'--PARAMS: '" + area + "'");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return ResponseEntity.ok().build();
+	}
+	// http://localhost:8085/nanifarfalla-service/swagger-ui.html
+}

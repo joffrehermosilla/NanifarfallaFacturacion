@@ -1,0 +1,38 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+@Entity
+@Table(name = "rolehasprivilege")
+@EntityListeners(AuditingEntityListener.class)
+public class RoleHasPrivileges {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_rolehasprivilege;
+
+	@JoinColumn(name = "fkcodigo_role", referencedColumnName = "codigo_role")
+	@ManyToOne
+	@JsonBackReference
+	Role mRole;
+
+//	int fkcodigo_role;
+	@JoinColumn(name = "fkcodigo_privilege", referencedColumnName = "codigo_privilege")
+	@ManyToOne
+	@JsonBackReference
+	Privilege mPrivilege;
+//	int fkcodigo_privilege;
+	Date version;
+	
+}

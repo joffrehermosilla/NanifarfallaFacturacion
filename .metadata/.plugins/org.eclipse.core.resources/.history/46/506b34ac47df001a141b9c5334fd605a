@@ -1,0 +1,14 @@
+package joffre.NanifarfallaRest.controller.auditorias;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import joffre.NanifarfallaRest.repository.auditorias.AuditoriaRoleHasPrivilegesRepository;
+
+public class AuditoriaRoleHasPrivilegesController {
+	private static final Log LOGGER = LogFactory.getLog(AuditoriaRoleHasPrivilegesController.class);
+
+	@Autowired
+	AuditoriaRoleHasPrivilegesRepository auditoriaRoleHasPrivilegesRepository;
+}

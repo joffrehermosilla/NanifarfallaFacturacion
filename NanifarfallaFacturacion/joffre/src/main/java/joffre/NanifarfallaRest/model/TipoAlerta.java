@@ -1,12 +1,16 @@
 package joffre.NanifarfallaRest.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -24,6 +28,9 @@ public class TipoAlerta {
 	String nombre_tipoalerta;
 	@NotBlank
 	Date version;
+
+	@OneToMany(mappedBy = "mTipoAlerta", fetch = FetchType.EAGER)
+	private Collection<Alerta> alertas = new ArrayList<>();
 
 	public TipoAlerta() {
 

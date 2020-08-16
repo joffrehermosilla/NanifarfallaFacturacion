@@ -1,0 +1,38 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name = "alertas")
+@EntityListeners(AuditingEntityListener.class)
+public class Alerta {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codigo_alerta;
+	private String mensaje_alerta;
+	private String categoria;
+	private Double precio;
+
+	private Date version;
+	
+	@JoinColumn(name = "fkcodigo_tipoalerta", referencedColumnName = "codigo_tipoalerta")
+	@ManyToOne
+	@JsonBackReference
+	TipoAlerta mTipoAlerta;
+
+
+}

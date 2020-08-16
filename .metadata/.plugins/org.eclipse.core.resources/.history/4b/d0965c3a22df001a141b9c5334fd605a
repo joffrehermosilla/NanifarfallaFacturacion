@@ -1,0 +1,92 @@
+package joffre.NanifarfallaRest.controller;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import joffre.NanifarfallaRest.exception.ResourceNotFoundException;
+import joffre.NanifarfallaRest.model.Alerta;
+import joffre.NanifarfallaRest.repository.AlertaRepository;
+
+@RestController
+@RequestMapping("/apiAlerta")
+public class AlertaController {
+	private static final Log LOGGER = LogFactory.getLog(AlertaController.class);
+	@Autowired
+	AlertaRepository alertaRepository;
+	
+
+	@GetMapping("/Alerta")
+	public List<Alerta> getAllAlerta() {
+		LOGGER.info("INFO TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return alertaRepository.findAll();
+	}
+
+	@PostMapping("/AddAlerta")
+	public Alerta createAlerta(@Valid @RequestBody Alerta alerta) {
+		LOGGER.info("INFO TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return alertaRepository.save(alerta);
+	}
+
+	@GetMapping("/alerta/{id}")
+	public Alerta getAlertaById(@PathVariable(value = "id") int alertaId) {
+		LOGGER.info("INFO  TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return alertaRepository.findById(alertaId).orElseThrow(() -> new ResourceNotFoundException("Alerta", "id", alertaId));
+	}
+
+	@PutMapping("/Alerta/{id}")
+	public Alerta updateAlerta(@PathVariable(value = "id") int alertaId, @Valid @RequestBody Alerta alertaDetails) {
+
+		Alerta alerta = alertaRepository.findById(alertaId)
+				.orElseThrow(() -> new ResourceNotFoundException("Alerta", "id", alertaId));
+		
+		
+		area.setNombre_area(areaDetails.getNombre_area());
+		area.setVendedor(areaDetails.getVendedor());
+	    area.setVersion(areaDetails.getVersion());
+		area.setClaveApi(areaDetails.getClaveApi());
+
+		Alerta updatedAlerta = alertaRepository.save(alerta);
+		LOGGER.info("METHOD: 'updateAlerta'--PARAMS: '" + alertaDetails + "'");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return updatedAlerta;
+	}
+
+	@DeleteMapping("/area/{id}")
+	public ResponseEntity<?> deleteArea(@PathVariable(value = "id") int areaId) {
+		Area area = arearepository.findById(areaId)
+				.orElseThrow(() -> new ResourceNotFoundException("Area", "id", areaId));
+
+		arearepository.delete(area);
+		LOGGER.info("METHOD: 'deleteArea'--PARAMS: '" + area + "'");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+		return ResponseEntity.ok().build();
+	}
+	// http://localhost:8085/nanifarfalla-service/swagger-ui.html
+}
