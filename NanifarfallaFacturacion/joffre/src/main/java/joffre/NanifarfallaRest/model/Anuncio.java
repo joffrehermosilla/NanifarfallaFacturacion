@@ -16,6 +16,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "anuncios")
 @EntityListeners(AuditingEntityListener.class)
@@ -42,6 +44,12 @@ public class Anuncio {
 	@NotBlank
 	String claveApi;
 
+	@OneToMany(mappedBy = "mAnuncio", fetch = FetchType.EAGER)
+	@JsonBackReference
+	private Collection<UserAnuncios> useranuncios = new ArrayList<>();
+	
+	
+
 	public String getClaveApi() {
 		return claveApi;
 	}
@@ -57,9 +65,6 @@ public class Anuncio {
 	public void setUseranuncios(Collection<UserAnuncios> useranuncios) {
 		this.useranuncios = useranuncios;
 	}
-
-	@OneToMany(mappedBy = "mAnuncio", fetch = FetchType.EAGER)
-	private Collection<UserAnuncios> useranuncios = new ArrayList<>();
 
 	public Anuncio() {
 

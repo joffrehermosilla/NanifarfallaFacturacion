@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "estado_catalogo")
 @EntityListeners(AuditingEntityListener.class)
@@ -25,7 +27,8 @@ public class EstadoCatalogo {
 	String claveApi;
 	Date version;
 
-	@OneToMany(mappedBy = "mEstadoCliente")
+	@OneToMany(mappedBy = "mEstadoCatalogo")
+	@JsonBackReference
 	private Collection<Catalogo> catalogos = new ArrayList<>();
 
 	public EstadoCatalogo() {

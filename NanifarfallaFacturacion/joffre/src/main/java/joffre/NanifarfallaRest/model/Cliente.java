@@ -26,43 +26,48 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int codigo_cliente;
-	
+
 	@JoinColumn(name = "fkcodigo_usuario", referencedColumnName = "codigo_usuario")
 	@ManyToOne
 	@JsonBackReference
 	Usuario mUsuario;
-	
+
 	@JoinColumn(name = "fkcodigo_regimencliente", referencedColumnName = "codigo_regimencliente")
 	@ManyToOne
 	@JsonBackReference
 	RegimenCliente mRegimen_cliente;
-	
+
 	@JoinColumn(name = "fkcodigo_estadocliente", referencedColumnName = "codigo_estadocliente")
 	@ManyToOne
 	@JsonBackReference
 	EstadoCliente mEstado_cliente;
-	
+
 	@OneToMany(mappedBy = "mCliente")
+	@JsonBackReference
 	private Collection<Cliente_tiene_pedido> cliente_tiene_pedido = new ArrayList<>();
-	
+
+	@OneToMany(mappedBy = "mCliente")
+	@JsonBackReference
+	private Collection<Contrato> contratos = new ArrayList<>();
+
 	@NotBlank
 	private Double latitud_cliente;
 
 	@NotBlank
 	private Double longitud_cliente;
-	
+
 	@NotBlank
 	private String type_cliente;
 
 	@NotBlank
 	private String foto_ruta;
-	
+
 	@NotBlank
 	private String ruc_cliente;
 
 	@NotBlank
 	private String dni_cliente;
-	
+
 	@NotBlank
 	private Date fecha_empadronamiento_cliente;
 
@@ -70,6 +75,14 @@ public class Cliente {
 	private String claveApi;
 	@NotBlank
 	private Date version;
+
+	public Collection<Contrato> getContratos() {
+		return contratos;
+	}
+
+	public void setContratos(Collection<Contrato> contratos) {
+		this.contratos = contratos;
+	}
 
 	public Usuario getmUsuario() {
 		return mUsuario;
@@ -206,5 +219,5 @@ public class Cliente {
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
 	}
-	
+
 }

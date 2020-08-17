@@ -1,4 +1,5 @@
 package joffre.NanifarfallaRest.controller;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import joffre.NanifarfallaRest.exception.ResourceNotFoundException;
 import joffre.NanifarfallaRest.model.Cliente_tiene_pedido;
 import joffre.NanifarfallaRest.repository.ClientetienePedidoRepository;
-
 
 @RestController
 @RequestMapping("/apiClienteTienePedido")
@@ -64,30 +64,32 @@ public class ClientetienePedidoController {
 		Cliente_tiene_pedido clientetienepedido = clientetienepedidorepository.findById(clientetienepedidoId)
 				.orElseThrow(() -> new ResourceNotFoundException("Cliente_tiene_pedido", "id", clientetienepedidoId));
 
-        clientetienepedido.setCantidad_producto(clientetienepedidoDetails.getCantidad_producto());
-        clientetienepedido.setCliente(clientetienepedidoDetails.getCliente());
-        clientetienepedido.setDescuento_web_pedido(clientetienepedidoDetails.getDescuento_web_pedido());
-        clientetienepedido.setEstado_cliente_tiene_pedido(clientetienepedidoDetails.getEstado_cliente_tiene_pedido());
-        clientetienepedido.setFactura_cliente_tiene_pedido(clientetienepedidoDetails.getFactura_cliente_tiene_pedido());
-        clientetienepedido.setFecha_entrega(clientetienepedidoDetails.getFecha_entrega());
-        clientetienepedido.setFecha_pedido(clientetienepedidoDetails.getFecha_entrega());
-        clientetienepedido.setIgv_venta(clientetienepedidoDetails.getIgv_venta());
-        clientetienepedido.setmCliente(clientetienepedidoDetails.getmCliente());
-        clientetienepedido.setmEstado_cliente_tiene_pedido(clientetienepedidoDetails.getEstado_cliente_tiene_pedido());
-        clientetienepedido.setmFactura_cliente_tiene_pedido(clientetienepedidoDetails.getmFactura_cliente_tiene_pedido());
-        clientetienepedido.setmIgv_venta(clientetienepedidoDetails.getmIgv_venta());
-        clientetienepedido.setMonto_por_descuentos(clientetienepedidoDetails.getMonto_por_descuentos());
-        clientetienepedido.setmPromocion_venta(clientetienepedidoDetails.getmPromocion_venta());
-        clientetienepedido.setmUsuario(clientetienepedidoDetails.getmUsuario());
-        clientetienepedido.setmVendedor(clientetienepedidoDetails.getmVendedor());
-        clientetienepedido.setPrecio_uni_desc_igv(clientetienepedidoDetails.getPrecio_uni_desc_igv());
-        clientetienepedido.setPrecio_uni_desc_sin_igv(clientetienepedidoDetails.getPrecio_uni_desc_sin_igv());
-        clientetienepedido.setProductoxpedido(clientetienepedidoDetails.getProductoxpedido());
-        clientetienepedido.setPromocion_venta(clientetienepedidoDetails.getmPromocion_venta());
-        clientetienepedido.setmUsuario(clientetienepedidoDetails.getmUsuario());
-        clientetienepedido.setVendedor(clientetienepedidoDetails.getmVendedor());
-        clientetienepedido.setVersion(clientetienepedidoDetails.getVersion());
-        clientetienepedido.setClaveApi(clientetienepedidoDetails.getClaveApi());
+		clientetienepedido.setCantidad_producto(clientetienepedidoDetails.getCantidad_producto());
+		clientetienepedido.setCliente(clientetienepedidoDetails.getCliente());
+		clientetienepedido.setDescuento_web_pedido(clientetienepedidoDetails.getDescuento_web_pedido());
+		clientetienepedido.setEstado_cliente_tiene_pedido(clientetienepedidoDetails.getEstado_cliente_tiene_pedido());
+		clientetienepedido.setFactura_cliente_tiene_pedido(clientetienepedidoDetails.getFactura_cliente_tiene_pedido());
+		clientetienepedido.setFecha_entrega(clientetienepedidoDetails.getFecha_entrega());
+		clientetienepedido.setFecha_pedido(clientetienepedidoDetails.getFecha_entrega());
+		clientetienepedido.setIgv_venta(clientetienepedidoDetails.getIgv_venta());
+		clientetienepedido.setmCliente(clientetienepedidoDetails.getmCliente());
+		clientetienepedido.setmEstado_cliente_tiene_pedido(clientetienepedidoDetails.getEstado_cliente_tiene_pedido());
+		clientetienepedido
+				.setmFactura_cliente_tiene_pedido(clientetienepedidoDetails.getmFactura_cliente_tiene_pedido());
+		clientetienepedido.setmIgv_venta(clientetienepedidoDetails.getmIgv_venta());
+		clientetienepedido.setMonto_por_descuentos(clientetienepedidoDetails.getMonto_por_descuentos());
+		clientetienepedido.setmPromocion_venta(clientetienepedidoDetails.getmPromocion_venta());
+		clientetienepedido.setmUsuario(clientetienepedidoDetails.getmUsuario());
+		clientetienepedido.setmVendedor(clientetienepedidoDetails.getmVendedor());
+		clientetienepedido.setPrecio_uni_desc_igv(clientetienepedidoDetails.getPrecio_uni_desc_igv());
+		clientetienepedido.setPrecio_uni_desc_sin_igv(clientetienepedidoDetails.getPrecio_uni_desc_sin_igv());
+		clientetienepedido.setProductoxpedido(clientetienepedidoDetails.getProductoxpedido());
+		clientetienepedido.setPromocion_venta(clientetienepedidoDetails.getmPromocion_venta());
+		clientetienepedido.setmUsuario(clientetienepedidoDetails.getmUsuario());
+		clientetienepedido.setVendedor(clientetienepedidoDetails.getmVendedor());
+		clientetienepedido.setVersion(clientetienepedidoDetails.getVersion());
+		clientetienepedido.setClaveApi(clientetienepedidoDetails.getClaveApi());
+		clientetienepedido.setContratos(clientetienepedidoDetails.getContratos());
 
 		Cliente_tiene_pedido updatedClientetienePedido = clientetienepedidorepository.save(clientetienepedido);
 		LOGGER.info("METHOD: 'updateClienteTienePedido'--PARAMS: '" + clientetienepedidoDetails + "'");
@@ -110,5 +112,5 @@ public class ClientetienePedidoController {
 		return ResponseEntity.ok().build();
 	}
 	// http://localhost:8085/nanifarfalla-service/swagger-ui.html
-	
+
 }

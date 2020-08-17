@@ -69,6 +69,7 @@ public class UserAnunciosController {
 		useranuncio.setVersion(useranuncioDetails.getVersion());
 		useranuncio.setmAnuncio(useranuncioDetails.getmAnuncio());
 		useranuncio.setmUsuario(useranuncioDetails.getmUsuario());
+		useranuncio.setContratos(useranuncioDetails.getContratos());
 
 		UserAnuncios updatedUserAnuncio = userAnunciosRepository.save(useranuncio);
 		LOGGER.info("METHOD: 'updateUserAnuncio'--PARAMS: '" + useranuncioDetails + "'");

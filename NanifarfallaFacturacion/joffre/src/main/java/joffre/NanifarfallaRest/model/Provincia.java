@@ -15,8 +15,39 @@ import javax.persistence.*;
 @Entity
 @Table(name = "provincia")
 @EntityListeners(AuditingEntityListener.class)
-
 public class Provincia {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonBackReference
+	int codigo_provincia;
+
+	@OneToMany(mappedBy = "provincia")
+	@JsonBackReference
+	private Collection<Ciudad> ciudad = new ArrayList<>();
+	/**
+	 * Creado por Joffre Hermosilla 19.05.2019
+	 */
+//	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "fkcodigo_pais")
+	@JoinColumn(name = "fkcodigo_pais", referencedColumnName = "codigo_pais")
+	@ManyToOne
+	@JsonBackReference
+	Pais pais;
+
+	public Pais getPais() {
+		return pais;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
+
+	@NotBlank
+	String nombre_provincia;
+	@NotBlank
+	String claveApi;
+	@NotBlank
+	Date version;
 
 	public Provincia() {
 
@@ -30,13 +61,6 @@ public class Provincia {
 		this.nombre_provincia = nombre_provincia;
 		this.claveApi = claveApi;
 	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int codigo_provincia;
-
-	@OneToMany(mappedBy = "provincia")
-	private Collection<Ciudad> ciudad = new ArrayList<>();
 
 	public Collection<Ciudad> getCiudad() {
 		return ciudad;
@@ -69,31 +93,6 @@ public class Provincia {
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
 	}
-
-	/**
-	 * Creado por Joffre Hermosilla 19.05.2019
-	 */
-//	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
-//	@JoinColumn(name = "fkcodigo_pais")
-	@JoinColumn(name = "fkcodigo_pais", referencedColumnName = "codigo_pais")
-	@ManyToOne
-	@JsonBackReference
-	Pais pais;
-
-	public Pais getPais() {
-		return pais;
-	}
-
-	public void setPais(Pais pais) {
-		this.pais = pais;
-	}
-
-	@NotBlank
-	String nombre_provincia;
-	@NotBlank
-	String claveApi;
-	@NotBlank
-	Date version;
 
 	public Date getVersion() {
 		return version;

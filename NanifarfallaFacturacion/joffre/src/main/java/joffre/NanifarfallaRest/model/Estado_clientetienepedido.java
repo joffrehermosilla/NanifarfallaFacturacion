@@ -15,6 +15,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "estado_cliente_tiene_pedido")
 @EntityListeners(AuditingEntityListener.class)
@@ -24,6 +26,7 @@ public class Estado_clientetienepedido {
 	int codigo_estado_cliente_tiene_pedido;
 
 	@OneToMany(mappedBy = "mEstado_cliente_tiene_pedido")
+	@JsonBackReference
 	private Collection<Cliente_tiene_pedido> cliente_tiene_pedido = new ArrayList<>();
 
 	@NotBlank
@@ -34,7 +37,7 @@ public class Estado_clientetienepedido {
 
 	@NotBlank
 	String claveApi;
-	
+
 	public Date getVersion() {
 		return version;
 	}

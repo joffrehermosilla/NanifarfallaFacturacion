@@ -67,6 +67,7 @@ public class AlertaController {
 		alerta.setPrecio(alertaDetails.getPrecio());
 		alerta.setCategoria(alertaDetails.getCategoria());
 		alerta.setVersion(alertaDetails.getVersion());
+		alerta.setUseralertas(alertaDetails.getUseralertas());
 
 		Alerta updatedAlerta = alertaRepository.save(alerta);
 		LOGGER.info("METHOD: 'updateAlerta'--PARAMS: '" + alertaDetails + "'");

@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "verificationtoken")
 @EntityListeners(AuditingEntityListener.class)
@@ -24,6 +26,7 @@ public class VerificationToken {
 	String token;
 	@JoinColumn(name = "fkcodigo_usuario", referencedColumnName = "codigo_usuario")
 	@ManyToOne
+	@JsonBackReference
 	Usuario mUsuario;
 	// int fkcodigo_usuario;
 	Date version;

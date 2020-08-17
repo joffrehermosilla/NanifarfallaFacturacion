@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "producto_tiene_colores")
 @EntityListeners(AuditingEntityListener.class)
@@ -22,11 +24,13 @@ public class ProductoTieneColores {
 	int codigo_producto_tiene_colores;
 	@JoinColumn(name = "fkcodigo_color", referencedColumnName = "codigo_colores")
 	@ManyToOne
+	@JsonBackReference
 	Colores mColores;
 
 	// fkcodigo_color
 	@JoinColumn(name = "fkcodigo_producto", referencedColumnName = "codigo_producto")
 	@ManyToOne
+	@JsonBackReference
 	Producto mProducto;
 //	fkcodigo_producto	
 	int stock;

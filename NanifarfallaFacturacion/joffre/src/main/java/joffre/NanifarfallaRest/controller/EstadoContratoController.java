@@ -27,10 +27,10 @@ import joffre.NanifarfallaRest.repository.EstadoContratoRepository;
 public class EstadoContratoController {
 
 	private static final Log LOGGER = LogFactory.getLog(EstadoContratoController.class);
-	
+
 	@Autowired
 	EstadoContratoRepository estadoContratoRepository;
-	
+
 	@GetMapping("/estadocontratos")
 	public List<EstadoContrato> getAllEstadosContratos() {
 		LOGGER.info("INFO TRACE");
@@ -55,19 +55,21 @@ public class EstadoContratoController {
 		LOGGER.warn("WARNING  TRACE");
 		LOGGER.error("ERROR TRACE");
 		LOGGER.debug("DEBUG  TRACE");
-		return estadoContratoRepository.findById(estadoContratoId).orElseThrow(() -> new ResourceNotFoundException("EstadoContrato", "id", estadoContratoId));
+		return estadoContratoRepository.findById(estadoContratoId)
+				.orElseThrow(() -> new ResourceNotFoundException("EstadoContrato", "id", estadoContratoId));
 	}
 
 	@PutMapping("/estadoscontrato/{id}")
-	public EstadoContrato updateEstadoContrato(@PathVariable(value = "id") int estadoContratoId, @Valid @RequestBody EstadoContrato estadoContratoDetails) {
+	public EstadoContrato updateEstadoContrato(@PathVariable(value = "id") int estadoContratoId,
+			@Valid @RequestBody EstadoContrato estadoContratoDetails) {
 
 		EstadoContrato estadocontrato = estadoContratoRepository.findById(estadoContratoId)
 				.orElseThrow(() -> new ResourceNotFoundException("EstadoContrato", "id", estadoContratoId));
-		
+
 		estadocontrato.setDescripcion(estadoContratoDetails.getDescripcion());
 		estadocontrato.setClaveApi(estadoContratoDetails.getClaveApi());
 		estadocontrato.setVersion(estadoContratoDetails.getVersion());
-		
+		estadocontrato.setContratos(estadoContratoDetails.getContratos());
 
 		EstadoContrato updateestadocontrato = estadoContratoRepository.save(estadocontrato);
 		LOGGER.info("METHOD: 'updateEstadoContrato'--PARAMS: '" + estadoContratoDetails + "'");

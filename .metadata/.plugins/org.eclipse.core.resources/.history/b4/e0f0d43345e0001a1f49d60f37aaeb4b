@@ -1,0 +1,313 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name = "cliente_tiene_pedido")
+@EntityListeners(AuditingEntityListener.class)
+public class Cliente_tiene_pedido {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_pedido_web;
+
+	@JoinColumn(name = "fkcodigo_cliente", referencedColumnName = "codigo_cliente")
+	@ManyToOne
+	@JsonBackReference
+	Cliente mCliente;
+
+	@JoinColumn(name = "fkcodigo_vendedor", referencedColumnName = "codigo_vendedor")
+	@ManyToOne
+	@JsonBackReference
+	Vendedor mVendedor;
+
+	@JoinColumn(name = "fkcodigo_promocion_venta", referencedColumnName = "codigo_promocion_venta")
+	@ManyToOne
+	@JsonBackReference
+	PromocionVenta mPromocion_venta;
+
+	@JoinColumn(name = "fkcodigo_estado_cliente_tiene_pedido", referencedColumnName = "codigo_estado_cliente_tiene_pedido")
+	@ManyToOne
+	@JsonBackReference
+	Estado_clientetienepedido mEstado_cliente_tiene_pedido;
+
+	@JoinColumn(name = "fkcodigo_factura_cliente_tiene_pedido", referencedColumnName = "codigo_factura_cliente_tiene_pedido")
+	@ManyToOne
+	@JsonBackReference
+	Factura_ctienepedido mFactura_cliente_tiene_pedido;
+
+	@JoinColumn(name = "fkcodigo_igv_venta", referencedColumnName = "codigo_igv_venta")
+	@ManyToOne
+	@JsonBackReference
+	IgvVenta mIgv_venta;
+
+	@JoinColumn(name = "fkcodigo_usuario", referencedColumnName = "codigo_usuario")
+	@ManyToOne
+	@JsonBackReference
+	Usuario mUsuario;
+
+	@OneToMany(mappedBy = "mClientetienepedido")
+	@JsonBackReference
+	private Collection<ProductoxPedido> productoxpedido = new ArrayList<>();
+
+	@OneToMany(mappedBy = "mClientetienepedido")
+	@JsonBackReference
+	private Collection<Contrato> contratos = new ArrayList<>();
+
+	@NotBlank
+	Double descuento_web_pedido;
+
+	@NotBlank
+	Double precio_uni_desc_igv;
+
+	@NotBlank
+	Double precio_uni_desc_sin_igv;
+
+	@NotBlank
+	Date fecha_pedido;
+
+	@NotBlank
+	Date fecha_entrega;
+
+	@NotBlank
+	int cantidad_producto;
+
+	@NotBlank
+	Double monto_por_descuentos;
+
+	@NotBlank
+	private String claveApi;
+
+	@NotBlank
+	private Date version;
+
+	public Cliente_tiene_pedido() {
+
+	}
+
+	public Cliente getmCliente() {
+		return mCliente;
+	}
+
+	public void setmCliente(Cliente mCliente) {
+		this.mCliente = mCliente;
+	}
+
+	public Vendedor getmVendedor() {
+		return mVendedor;
+	}
+
+	public void setmVendedor(Vendedor mVendedor) {
+		this.mVendedor = mVendedor;
+	}
+
+	public PromocionVenta getmPromocion_venta() {
+		return mPromocion_venta;
+	}
+
+	public void setmPromocion_venta(PromocionVenta mPromocion_venta) {
+		this.mPromocion_venta = mPromocion_venta;
+	}
+
+	public Estado_clientetienepedido getmEstado_cliente_tiene_pedido() {
+		return mEstado_cliente_tiene_pedido;
+	}
+
+	public void setmEstado_cliente_tiene_pedido(Estado_clientetienepedido mEstado_cliente_tiene_pedido) {
+		this.mEstado_cliente_tiene_pedido = mEstado_cliente_tiene_pedido;
+	}
+
+	public Factura_ctienepedido getmFactura_cliente_tiene_pedido() {
+		return mFactura_cliente_tiene_pedido;
+	}
+
+	public void setmFactura_cliente_tiene_pedido(Factura_ctienepedido mFactura_cliente_tiene_pedido) {
+		this.mFactura_cliente_tiene_pedido = mFactura_cliente_tiene_pedido;
+	}
+
+	public IgvVenta getmIgv_venta() {
+		return mIgv_venta;
+	}
+
+	public void setmIgv_venta(IgvVenta mIgv_venta) {
+		this.mIgv_venta = mIgv_venta;
+	}
+
+	public Usuario getmUsuario() {
+		return mUsuario;
+	}
+
+	public void setmUsuario(Usuario mUsuario) {
+		this.mUsuario = mUsuario;
+	}
+
+	public Date getVersion() {
+		return version;
+	}
+
+	public void setVersion(Date version) {
+		this.version = version;
+	}
+
+	public int getCodigo_pedido_web() {
+		return codigo_pedido_web;
+	}
+
+	public void setCodigo_pedido_web(int codigo_pedido_web) {
+		this.codigo_pedido_web = codigo_pedido_web;
+	}
+
+	public Cliente getCliente() {
+		return mCliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.mCliente = cliente;
+	}
+
+	public Vendedor getVendedor() {
+		return mVendedor;
+	}
+
+	public void setVendedor(Vendedor vendedor) {
+		this.mVendedor = vendedor;
+	}
+
+	public PromocionVenta getPromocion_venta() {
+		return mPromocion_venta;
+	}
+
+	public void setPromocion_venta(PromocionVenta promocion_venta) {
+		this.mPromocion_venta = promocion_venta;
+	}
+
+	public Estado_clientetienepedido getEstado_cliente_tiene_pedido() {
+		return mEstado_cliente_tiene_pedido;
+	}
+
+	public void setEstado_cliente_tiene_pedido(Estado_clientetienepedido estado_cliente_tiene_pedido) {
+		this.mEstado_cliente_tiene_pedido = estado_cliente_tiene_pedido;
+	}
+
+	public Factura_ctienepedido getFactura_cliente_tiene_pedido() {
+		return mFactura_cliente_tiene_pedido;
+	}
+
+	public void setFactura_cliente_tiene_pedido(Factura_ctienepedido factura_cliente_tiene_pedido) {
+		this.mFactura_cliente_tiene_pedido = factura_cliente_tiene_pedido;
+	}
+
+	public IgvVenta getIgv_venta() {
+		return mIgv_venta;
+	}
+
+	public void setIgv_venta(IgvVenta igv_venta) {
+		this.mIgv_venta = igv_venta;
+	}
+
+	public Usuario getUsuario() {
+		return mUsuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.mUsuario = usuario;
+	}
+
+	public Collection<ProductoxPedido> getProductoxpedido() {
+		return productoxpedido;
+	}
+
+	public void setProductoxpedido(Collection<ProductoxPedido> productoxpedido) {
+		this.productoxpedido = productoxpedido;
+	}
+
+	public Double getDescuento_web_pedido() {
+		return descuento_web_pedido;
+	}
+
+	public void setDescuento_web_pedido(Double descuento_web_pedido) {
+		this.descuento_web_pedido = descuento_web_pedido;
+	}
+
+	public Double getPrecio_uni_desc_igv() {
+		return precio_uni_desc_igv;
+	}
+
+	public void setPrecio_uni_desc_igv(Double precio_uni_desc_igv) {
+		this.precio_uni_desc_igv = precio_uni_desc_igv;
+	}
+
+	public Double getPrecio_uni_desc_sin_igv() {
+		return precio_uni_desc_sin_igv;
+	}
+
+	public void setPrecio_uni_desc_sin_igv(Double precio_uni_desc_sin_igv) {
+		this.precio_uni_desc_sin_igv = precio_uni_desc_sin_igv;
+	}
+
+	public Date getFecha_pedido() {
+		return fecha_pedido;
+	}
+
+	public void setFecha_pedido(Date fecha_pedido) {
+		this.fecha_pedido = fecha_pedido;
+	}
+
+	public Date getFecha_entrega() {
+		return fecha_entrega;
+	}
+
+	public void setFecha_entrega(Date fecha_entrega) {
+		this.fecha_entrega = fecha_entrega;
+	}
+
+	public int getCantidad_producto() {
+		return cantidad_producto;
+	}
+
+	public void setCantidad_producto(int cantidad_producto) {
+		this.cantidad_producto = cantidad_producto;
+	}
+
+	public Double getMonto_por_descuentos() {
+		return monto_por_descuentos;
+	}
+
+	public void setMonto_por_descuentos(Double monto_por_descuentos) {
+		this.monto_por_descuentos = monto_por_descuentos;
+	}
+
+	public String getClaveApi() {
+		return claveApi;
+	}
+
+	public void setClaveApi(String claveApi) {
+		this.claveApi = claveApi;
+	}
+
+	public Collection<Contrato> getContratos() {
+		return contratos;
+	}
+
+	public void setContratos(Collection<Contrato> contratos) {
+		this.contratos = contratos;
+	}
+
+}

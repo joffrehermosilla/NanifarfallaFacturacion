@@ -1,5 +1,7 @@
 package joffre.NanifarfallaRest.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -33,6 +36,20 @@ public class Alerta {
 	@ManyToOne
 	@JsonBackReference
 	TipoAlerta mTipoAlerta;
+
+	@OneToMany(mappedBy = "mAlerta")
+	@JsonBackReference
+	private Collection<UserAlerta> useralertas = new ArrayList<>();
+	
+	
+	
+	public Collection<UserAlerta> getUseralertas() {
+		return useralertas;
+	}
+
+	public void setUseralertas(Collection<UserAlerta> useralertas) {
+		this.useralertas = useralertas;
+	}
 
 	public Alerta() {
 

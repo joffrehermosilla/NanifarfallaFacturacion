@@ -1,18 +1,24 @@
 package joffre.NanifarfallaRest.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "user_anuncios")
@@ -23,10 +29,12 @@ public class UserAnuncios {
 	int codigo_user_anuncio;
 	@JoinColumn(name = "fkcodigo_anuncio", referencedColumnName = "codigo_anuncio")
 	@ManyToOne
+	@JsonBackReference
 	Anuncio mAnuncio;
 	// int fkcodigo_anuncio;
 	@JoinColumn(name = "fkcodigo_usuario", referencedColumnName = "codigo_usuario")
 	@ManyToOne
+	@JsonBackReference
 	Usuario mUsuario;
 	// int fkcodigo_usuario;
 	@NotBlank
@@ -37,6 +45,18 @@ public class UserAnuncios {
 	Double precio;
 	@NotBlank
 	Date version;
+
+	@OneToMany(mappedBy = "mUserAnuncios", fetch = FetchType.EAGER)
+	@JsonBackReference
+	private Collection<Contrato> contratos = new ArrayList<>();
+
+	public Collection<Contrato> getContratos() {
+		return contratos;
+	}
+
+	public void setContratos(Collection<Contrato> contratos) {
+		this.contratos = contratos;
+	}
 
 	public UserAnuncios() {
 

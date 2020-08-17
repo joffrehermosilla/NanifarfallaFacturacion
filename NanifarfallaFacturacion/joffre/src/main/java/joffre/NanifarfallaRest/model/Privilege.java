@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "privilege")
 @EntityListeners(AuditingEntityListener.class)
@@ -24,6 +26,7 @@ public class Privilege {
 	String nombre_privilege;
 	Date version;
 	@OneToMany(mappedBy = "mPrivilege")
+	@JsonBackReference
 	private Collection<RoleHasPrivileges> roleHasPrivileges = new ArrayList<>();
 
 	public Privilege() {

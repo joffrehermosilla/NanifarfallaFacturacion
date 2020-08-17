@@ -81,6 +81,8 @@ public class UsuarioxController {
 		usuariox.setTipousuario(usuarioxDetails.getTipousuario());
 		usuariox.setUseranuncios(usuarioxDetails.getUseranuncios());
 		usuariox.setVerificationToken(usuarioxDetails.getVerificationToken());
+		usuariox.setContratos(usuarioxDetails.getContratos());
+		usuariox.setUseralertas(usuarioxDetails.getUseralertas());
 
 		Usuario updatedUsuariox = Usuarioxrepository.save(usuariox);
 

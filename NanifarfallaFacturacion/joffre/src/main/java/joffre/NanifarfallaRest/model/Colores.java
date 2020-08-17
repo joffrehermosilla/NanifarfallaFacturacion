@@ -16,6 +16,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "colores")
 @EntityListeners(AuditingEntityListener.class)
@@ -32,6 +34,7 @@ public class Colores {
 	Date version;
 
 	@OneToMany(mappedBy = "mProducto", fetch = FetchType.EAGER)
+	@JsonBackReference
 	private Collection<ProductoTieneColores> productoTieneColores = new ArrayList<>();
 
 	public Collection<ProductoTieneColores> getProductoTieneColores() {

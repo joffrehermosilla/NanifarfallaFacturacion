@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "tipo_impuesto")
@@ -24,14 +24,13 @@ public class TipoImpuesto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int codigo_tipo_impuesto;
-	
+
 	@OneToMany(mappedBy = "mTipoimpuesto")
+	@JsonBackReference
 	private Collection<IgvVenta> igvventas = new ArrayList<>();
-	
-	
+
 	@NotBlank
 	String nombre_tipo_impuesto;
-	
 
 	@NotBlank
 	Double porcentaje_tipo_impuesto;
@@ -78,7 +77,7 @@ public class TipoImpuesto {
 
 	@NotBlank
 	String claveApi;
-	
+
 	@NotBlank
 	Date version;
 

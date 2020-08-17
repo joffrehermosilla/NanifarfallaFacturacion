@@ -1,4 +1,5 @@
 package joffre.NanifarfallaRest.model;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -16,6 +17,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "tipousuario")
 @EntityListeners(AuditingEntityListener.class)
@@ -27,10 +29,10 @@ public class TipoUsuario {
 
 	@NotBlank
 	String nombre_tipousuario;
-	
+
 	@NotBlank
 	String claveApi;
-	
+
 	@NotBlank
 	Date version;
 

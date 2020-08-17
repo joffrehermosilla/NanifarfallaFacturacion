@@ -6,7 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "tipo_alerta")
@@ -29,8 +31,29 @@ public class TipoAlerta {
 	@NotBlank
 	Date version;
 
-	@OneToMany(mappedBy = "mTipoAlerta", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mTipoAlerta")
+	@JsonBackReference
 	private Collection<Alerta> alertas = new ArrayList<>();
+
+	@OneToMany(mappedBy = "mTipoAlerta")
+	@JsonBackReference
+	private Collection<UserAlerta> useralertas = new ArrayList<>();
+
+	public Collection<Alerta> getAlertas() {
+		return alertas;
+	}
+
+	public void setAlertas(Collection<Alerta> alertas) {
+		this.alertas = alertas;
+	}
+
+	public Collection<UserAlerta> getUseralertas() {
+		return useralertas;
+	}
+
+	public void setUseralertas(Collection<UserAlerta> useralertas) {
+		this.useralertas = useralertas;
+	}
 
 	public TipoAlerta() {
 

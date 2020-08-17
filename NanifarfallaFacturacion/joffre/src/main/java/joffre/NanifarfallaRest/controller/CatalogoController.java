@@ -78,6 +78,7 @@ public class CatalogoController {
 		catalogo.setPromedioTotalProd(catalogoDetails.getPromedioTotalProd());
 		catalogo.setValor_con_igv(catalogoDetails.getValor_con_igv());
 		catalogo.setVersion(catalogoDetails.getVersion());
+		catalogo.setContratos(catalogoDetails.getContratos());
 
 		Catalogo updatedcatalogo = catalogoRepository.save(catalogo);
 		LOGGER.info("METHOD: 'updatecatalogo'--PARAMS: '" + catalogoDetails + "'");

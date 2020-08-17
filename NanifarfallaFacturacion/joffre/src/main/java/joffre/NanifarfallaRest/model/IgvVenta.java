@@ -27,6 +27,7 @@ public class IgvVenta {
 	private int codigo_igv_venta;
 
 	@OneToMany(mappedBy = "mIgv_venta")
+	@JsonBackReference
 	private Collection<Cliente_tiene_pedido> clientetienepedido = new ArrayList<>();
 
 	@JoinColumn(name = "fkcodigo_tipo_impuesto", referencedColumnName = "codigo_tipo_impuesto")

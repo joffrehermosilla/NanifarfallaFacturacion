@@ -15,6 +15,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "promocion_venta")
 @EntityListeners(AuditingEntityListener.class)
@@ -24,6 +26,7 @@ public class PromocionVenta {
 	int codigo_promocion_venta;
 
 	@OneToMany(mappedBy = "mPromocion_venta")
+	@JsonBackReference
 	private Collection<Cliente_tiene_pedido> cliente_tiene_pedido = new ArrayList<>();
 
 	@NotBlank
@@ -40,6 +43,12 @@ public class PromocionVenta {
 
 	@NotBlank
 	String descripcion_promocion;
+
+	@NotBlank
+	String claveApi;
+
+	@NotBlank
+	Date version;
 
 	public int getCodigo_promocion_venta() {
 		return codigo_promocion_venta;
@@ -104,12 +113,6 @@ public class PromocionVenta {
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
 	}
-
-	@NotBlank
-	String claveApi;
-
-	@NotBlank
-	Date version;
 
 	public Date getVersion() {
 		return version;

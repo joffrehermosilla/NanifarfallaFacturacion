@@ -15,6 +15,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "tipo_insumo")
@@ -23,18 +24,10 @@ public class TipoInsumo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo_tipoinsumo;
-	
-	
-	public Collection<Insumo> getInsumo() {
-		return insumo;
-	}
-
-	public void setInsumo(Collection<Insumo> insumo) {
-		this.insumo = insumo;
-	}
 
 	@OneToMany(mappedBy = "mTipoinsumo")
-   private Collection<Insumo> insumo = new ArrayList<>();
+	@JsonBackReference
+	private Collection<Insumo> insumo = new ArrayList<>();
 	@NotBlank
 	private String nombre_tipo_insumo;
 
@@ -42,9 +35,14 @@ public class TipoInsumo {
 	private String claveApi;
 	@NotBlank
 	private Date version;
-	
-	
-	
+
+	public Collection<Insumo> getInsumo() {
+		return insumo;
+	}
+
+	public void setInsumo(Collection<Insumo> insumo) {
+		this.insumo = insumo;
+	}
 
 	public Date getVersion() {
 		return version;
@@ -77,5 +75,5 @@ public class TipoInsumo {
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
 	}
-	
+
 }

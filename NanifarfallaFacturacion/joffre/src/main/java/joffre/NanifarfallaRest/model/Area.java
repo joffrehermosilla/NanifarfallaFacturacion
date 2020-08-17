@@ -15,6 +15,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "area")
 @EntityListeners(AuditingEntityListener.class)
@@ -33,6 +35,7 @@ public class Area {
 	Date version;
 
 	@OneToMany(mappedBy = "area")
+	@JsonBackReference
 	private Collection<Vendedor> vendedor = new ArrayList<>();
 
 	public int getCodigo_area() {

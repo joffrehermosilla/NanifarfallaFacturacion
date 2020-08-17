@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -63,7 +64,12 @@ public class Cliente_tiene_pedido {
 	Usuario mUsuario;
 
 	@OneToMany(mappedBy = "mClientetienepedido")
+	@JsonBackReference
 	private Collection<ProductoxPedido> productoxpedido = new ArrayList<>();
+
+	@OneToMany(mappedBy = "mClienteTienePedido")
+	@JsonBackReference
+	private Collection<Contrato> contratos = new ArrayList<>();
 
 	@NotBlank
 	Double descuento_web_pedido;
@@ -88,15 +94,12 @@ public class Cliente_tiene_pedido {
 
 	@NotBlank
 	private String claveApi;
-	
+
 	@NotBlank
 	private Date version;
-	
-	
-	
 
 	public Cliente_tiene_pedido() {
-		
+
 	}
 
 	public Cliente getmCliente() {
@@ -297,6 +300,14 @@ public class Cliente_tiene_pedido {
 
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
+	}
+
+	public Collection<Contrato> getContratos() {
+		return contratos;
+	}
+
+	public void setContratos(Collection<Contrato> contratos) {
+		this.contratos = contratos;
 	}
 
 }

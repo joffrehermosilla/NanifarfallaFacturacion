@@ -86,6 +86,7 @@ public class Vendedor {
 	Area area;
 
 	@OneToMany(mappedBy = "mVendedor")
+	@JsonBackReference
 	private Collection<Cliente_tiene_pedido> cliente_tiene_pedido = new ArrayList<>();
 
 	@NotBlank

@@ -6,7 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -60,21 +60,51 @@ public class Usuario {
 	EstadoUsuario estadousuario;
 
 	@OneToMany(mappedBy = "mUsuario")
+	@JsonBackReference
 	private Collection<Cliente> cliente = new ArrayList<>();
 
 	@OneToMany(mappedBy = "usuario")
+	@JsonBackReference
 	private Collection<Vendedor> vendedor = new ArrayList<>();
 	@OneToMany(mappedBy = "mUsuario")
+	@JsonBackReference
 	private Collection<Cliente_tiene_pedido> cliente_tiene_pedido = new ArrayList<>();
 
-	@OneToMany(mappedBy = "mUsuario", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mUsuario")
+	@JsonBackReference
 	private Collection<UserAnuncios> useranuncios = new ArrayList<>();
 
-	@OneToMany(mappedBy = "mUsuario", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mUsuario")
+	@JsonBackReference
 	private Collection<PasswordRessetToken> passwordResetTokens = new ArrayList<>();
 
-	@OneToMany(mappedBy = "mUsuario", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mUsuario")
+	@JsonBackReference
 	private Collection<VerificationToken> verificationToken = new ArrayList<>();
+
+	@OneToMany(mappedBy = "mUsuario")
+	@JsonBackReference
+	private Collection<Contrato> contratos = new ArrayList<>();
+
+	@OneToMany(mappedBy = "mUsuario")
+	@JsonBackReference
+	private Collection<UserAlerta> useralertas = new ArrayList<>();
+
+	public Collection<UserAlerta> getUseralertas() {
+		return useralertas;
+	}
+
+	public void setUseralertas(Collection<UserAlerta> useralertas) {
+		this.useralertas = useralertas;
+	}
+
+	public Collection<Contrato> getContratos() {
+		return contratos;
+	}
+
+	public void setContratos(Collection<Contrato> contratos) {
+		this.contratos = contratos;
+	}
 
 	public Collection<VerificationToken> getVerificationToken() {
 		return verificationToken;

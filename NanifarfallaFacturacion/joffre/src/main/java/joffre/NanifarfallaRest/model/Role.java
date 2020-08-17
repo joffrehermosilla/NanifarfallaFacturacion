@@ -15,6 +15,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "role")
 @EntityListeners(AuditingEntityListener.class)
@@ -27,6 +29,7 @@ public class Role {
 	@NotBlank
 	Date version;
 	@OneToMany(mappedBy = "mRole")
+	@JsonBackReference
 	private Collection<RoleHasPrivileges> roleHasPrivileges = new ArrayList<>();
 
 	public Role() {

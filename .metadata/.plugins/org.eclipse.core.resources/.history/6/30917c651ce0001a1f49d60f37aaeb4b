@@ -1,0 +1,24 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "pais")
+@EntityListeners(AuditingEntityListener.class)
+public class UserAlerta {
+	
+	@OneToMany(mappedBy = "mEstadoContrato", fetch = FetchType.EAGER)
+	private Collection<Contrato> contratos = new ArrayList<>();
+	@OneToMany(mappedBy = "mUserAlerta")
+	private Collection<Contrato> contratos = new ArrayList<>();
+
+}

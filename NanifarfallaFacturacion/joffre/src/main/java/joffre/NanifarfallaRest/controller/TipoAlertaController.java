@@ -65,6 +65,8 @@ public class TipoAlertaController {
 
 		tipoalerta.setNombre_tipoalerta(tipoalertaDetails.getNombre_tipoalerta());
 		tipoalerta.setVersion(tipoalertaDetails.getVersion());
+		tipoalerta.setAlertas(tipoalertaDetails.getAlertas());
+		tipoalerta.setUseralertas(tipoalertaDetails.getUseralertas());
 
 		TipoAlerta updatedTipoAlerta = tipoAlertaRepository.save(tipoalerta);
 		LOGGER.info("METHOD: 'updateTipoAlerta'--PARAMS: '" + tipoalertaDetails + "'");

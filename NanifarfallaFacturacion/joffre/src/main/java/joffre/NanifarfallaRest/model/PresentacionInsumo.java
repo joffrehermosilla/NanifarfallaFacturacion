@@ -10,6 +10,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -24,6 +27,14 @@ public class PresentacionInsumo {
 
 	@NotBlank
 	private String nombre_presentacion_insumo;
+	@OneToMany(mappedBy = "mPresentacion_insumo")
+	@JsonBackReference
+	private Collection<Insumo> insumo = new ArrayList<>();
+
+	@NotBlank
+	private String claveApi;
+	@NotBlank
+	private Date version;
 
 	public int getCodigo_presentacioninsumo() {
 		return codigo_presentacioninsumo;
@@ -57,12 +68,6 @@ public class PresentacionInsumo {
 		this.insumo = insumo;
 	}
 
-	@NotBlank
-	private String claveApi;
-	@NotBlank
-	private Date version;
-
-	
 	public Date getVersion() {
 		return version;
 	}
@@ -70,8 +75,5 @@ public class PresentacionInsumo {
 	public void setVersion(Date version) {
 		this.version = version;
 	}
-
-	@OneToMany(mappedBy = "mPresentacion_insumo")
-	private Collection<Insumo> insumo = new ArrayList<>();
 
 }

@@ -1,4 +1,5 @@
 package joffre.NanifarfallaRest.controller;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import joffre.NanifarfallaRest.exception.ResourceNotFoundException;
 import joffre.NanifarfallaRest.model.Cliente;
 import joffre.NanifarfallaRest.repository.ClienteRepository;
-
 
 @RestController
 @RequestMapping("/apiCliente")
@@ -63,22 +63,23 @@ public class ClienteController {
 		Cliente cliente = clienterepository.findById(clienteId)
 				.orElseThrow(() -> new ResourceNotFoundException("Cliente", "id", clienteId));
 
-        cliente.setUsuario(clienteDetails.getUsuario());
-        cliente.setRegimen_cliente(clienteDetails.getRegimen_cliente());
-        cliente.setEstado_cliente(clienteDetails.getEstado_cliente());
-        cliente.setLatitud_cliente(clienteDetails.getLatitud_cliente());
-        cliente.setLongitud_cliente(clienteDetails.getLongitud_cliente());
-        cliente.setType_cliente(clienteDetails.getType_cliente());
-        cliente.setFoto_ruta(clienteDetails.getFoto_ruta());
-        cliente.setRuc_cliente(clienteDetails.getRuc_cliente());
-        cliente.setDni_cliente(clienteDetails.getDni_cliente());
-        cliente.setFecha_empadronamiento_cliente(clienteDetails.getFecha_empadronamiento_cliente());
+		cliente.setUsuario(clienteDetails.getUsuario());
+		cliente.setRegimen_cliente(clienteDetails.getRegimen_cliente());
+		cliente.setEstado_cliente(clienteDetails.getEstado_cliente());
+		cliente.setLatitud_cliente(clienteDetails.getLatitud_cliente());
+		cliente.setLongitud_cliente(clienteDetails.getLongitud_cliente());
+		cliente.setType_cliente(clienteDetails.getType_cliente());
+		cliente.setFoto_ruta(clienteDetails.getFoto_ruta());
+		cliente.setRuc_cliente(clienteDetails.getRuc_cliente());
+		cliente.setDni_cliente(clienteDetails.getDni_cliente());
+		cliente.setFecha_empadronamiento_cliente(clienteDetails.getFecha_empadronamiento_cliente());
 		cliente.setClaveApi(clienteDetails.getClaveApi());
 		cliente.setCliente_tiene_pedido(clienteDetails.getCliente_tiene_pedido());
 		cliente.setmEstado_cliente(clienteDetails.getmEstado_cliente());
 		cliente.setmRegimen_cliente(clienteDetails.getmRegimen_cliente());
 		cliente.setmUsuario(clienteDetails.getmUsuario());
 		cliente.setVersion(clienteDetails.getVersion());
+		cliente.setContratos(clienteDetails.getContratos());
 
 		Cliente updatedEstadoCliente = clienterepository.save(cliente);
 		LOGGER.info("METHOD: 'updateCliente'--PARAMS: '" + clienteDetails + "'");

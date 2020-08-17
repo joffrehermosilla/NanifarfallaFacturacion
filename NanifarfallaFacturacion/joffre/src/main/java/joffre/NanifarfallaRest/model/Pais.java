@@ -1,12 +1,14 @@
 package joffre.NanifarfallaRest.model;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
 
 @Entity
 @Table(name = "pais")
@@ -15,24 +17,20 @@ public class Pais {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo_pais;
-	
+
 	@NotBlank
 	private String nombre_pais;
 
 	@NotBlank
 	private String claveApi;
-	
-	
-	
-	
+
 	@OneToMany(mappedBy = "pais")
+	@JsonBackReference
 	private Collection<Provincia> provincias = new ArrayList<>();
-	
-	
+
 	@OneToMany(mappedBy = "pais")
+	@JsonBackReference
 	private Collection<DiasEspeciales> diasespeciales = new ArrayList<>();
-	
-	
 
 	public Collection<DiasEspeciales> getDiasespeciales() {
 		return diasespeciales;
@@ -49,8 +47,6 @@ public class Pais {
 	public void setProvincias(Collection<Provincia> provincias) {
 		this.provincias = provincias;
 	}
-
-
 
 //	@Column(nullable = false, updatable = false)
 //	@Temporal(TemporalType.TIMESTAMP)
@@ -117,5 +113,5 @@ public class Pais {
 	public Pais() {
 
 	}
-	
+
 }

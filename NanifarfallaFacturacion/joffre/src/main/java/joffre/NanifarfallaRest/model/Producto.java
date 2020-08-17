@@ -158,12 +158,15 @@ public class Producto {
 	EstadoProducto mEstadoproducto;
 
 	@OneToMany(mappedBy = "mProducto")
+	@JsonBackReference
 	private Collection<ProductoxPedido> productoxpedido = new ArrayList<>();
 
 	@OneToMany(mappedBy = "mProducto")
+	@JsonBackReference
 	private Collection<RecetaProductotieneInsumo> recetasproductosinsumos = new ArrayList<>();
 
 	@OneToMany(mappedBy = "mColores", fetch = FetchType.EAGER)
+	@JsonBackReference
 	private Collection<ProductoTieneColores> productoTieneColores = new ArrayList<>();
 
 	public Collection<ProductoTieneColores> getProductoTieneColores() {

@@ -1,0 +1,73 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name = "contrato")
+@EntityListeners(AuditingEntityListener.class)
+public class Contrato {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_contrato;
+	String descripcion;
+	Double monto;
+	Date fecha_inicio;
+	Date fecha_fin;
+	@JoinColumn(name = "fkcodigo_estadoContrato", referencedColumnName = "codigo_estadoContrato")
+	@ManyToOne
+	@JsonBackReference
+	Contrato mContrato;
+
+	// fkcodigo_estadoContrato
+	@JoinColumn(name = "fkcodigo_usuario", referencedColumnName = "codigo_usuario")
+	@ManyToOne
+	EstadoContrato mEstadoContrato;
+
+	// fkcodigo_usuario
+	@JoinColumn(name = "fkcodigo_cliente", referencedColumnName = "codigo_cliente")
+	@ManyToOne
+	@JsonBackReference
+	Cliente mCliente;
+
+	// fkcodigo_cliente
+
+	@JoinColumn(name = "fkcodigo_user_alerta", referencedColumnName = "codigo_user_alerta")
+	@ManyToOne
+	@JsonBackReference
+	UserAlerta mUserAlerta;
+
+	// fkcodigo_user_alerta
+	@JoinColumn(name = "fkcodigo_user_anuncio", referencedColumnName = "codigo_user_anuncio")
+	@ManyToOne
+	@JsonBackReference
+	UserAnuncios mUserAnuncios;
+
+	// fkcodigo_user_anuncio
+	@JoinColumn(name = "fkcodigo_pedido_web", referencedColumnName = "codigo_pedido_web")
+	@ManyToOne
+	@JsonBackReference
+	Cliente_tiene_pedido mClienteTienePedido;
+
+	// fkcodigo_pedido_web
+
+	@JoinColumn(name = "fkcodigo_catalogo", referencedColumnName = "codigo_catalogo")
+	@ManyToOne
+	@JsonBackReference
+	Catalogo mCatalogo;
+
+	// fkcodigo_catalogo
+	Date version;
+}

@@ -1,0 +1,74 @@
+package joffre.NanifarfallaRest.model.auditorias;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "audi_contrato")
+@EntityListeners(AuditingEntityListener.class)
+public class AuditoriaContrato {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_audi_contrato;
+	@NotBlank
+	String usuario;
+	@NotBlank
+	Date fecha_cambio;
+	@NotBlank
+	String descripcion_old;
+	@NotBlank
+	Double monto_old;
+	@NotBlank
+	Date fecha_inicio_old;
+	@NotBlank
+	Date fecha_fin_old;
+	@NotBlank
+	int fkcodigo_estadoContrato_old;
+	@NotBlank
+	int fkcodigo_usuario_old;
+	@NotBlank
+	int fkcodigo_cliente_old;
+	@NotBlank
+	int fkcodigo_user_alerta_old;
+	@NotBlank
+	int fkcodigo_user_anuncio_old;
+	@NotBlank
+	int fkcodigo_pedido_web_old;
+	@NotBlank
+	int fkcodigo_catalogo_old;
+	@NotBlank
+	Date version_old;
+	@NotBlank
+	String descripcion_new;
+	@NotBlank
+	Double monto_new;
+	@NotBlank
+	Date fecha_inicio_new;
+	@NotBlank
+	Date fecha_fin_new;
+	@NotBlank
+	int fkcodigo_estadoContrato_new;
+	@NotBlank
+	int fkcodigo_usuario_new;
+	@NotBlank
+	int fkcodigo_cliente_new;
+	@NotBlank
+	int fkcodigo_user_alerta_new;
+	@NotBlank
+	int fkcodigo_user_anuncio_new;
+	@NotBlank
+	int fkcodigo_pedido_web_new;
+	@NotBlank
+	int fkcodigo_catalogo_new;
+	@NotBlank
+	Date version_new;
+}

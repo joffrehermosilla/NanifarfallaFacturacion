@@ -1,0 +1,57 @@
+package joffre.NanifarfallaRest.model.auditorias;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+
+
+/**
+ * QAuditoriaAlertaRepository is a Querydsl query type for AuditoriaAlertaRepository
+ */
+@Generated("com.querydsl.codegen.EntitySerializer")
+public class QAuditoriaAlertaRepository extends EntityPathBase<AuditoriaAlertaRepository> {
+
+    private static final long serialVersionUID = 2107586784L;
+
+    public static final QAuditoriaAlertaRepository auditoriaAlertaRepository = new QAuditoriaAlertaRepository("auditoriaAlertaRepository");
+
+    public final NumberPath<Integer> codigo_audi_alerta = createNumber("codigo_audi_alerta", Integer.class);
+
+    public final DateTimePath<java.util.Date> fecha_cambio = createDateTime("fecha_cambio", java.util.Date.class);
+
+    public final NumberPath<Integer> fkcodigo_tipoalerta_new = createNumber("fkcodigo_tipoalerta_new", Integer.class);
+
+    public final NumberPath<Integer> fkcodigo_tipoalerta_old = createNumber("fkcodigo_tipoalerta_old", Integer.class);
+
+    public final StringPath mensaje_alerta_new = createString("mensaje_alerta_new");
+
+    public final StringPath mensaje_alerta_old = createString("mensaje_alerta_old");
+
+    public final NumberPath<Double> precio_new = createNumber("precio_new", Double.class);
+
+    public final NumberPath<Double> precio_old = createNumber("precio_old", Double.class);
+
+    public final StringPath usuario = createString("usuario");
+
+    public final DateTimePath<java.util.Date> version_new = createDateTime("version_new", java.util.Date.class);
+
+    public final DateTimePath<java.util.Date> version_old = createDateTime("version_old", java.util.Date.class);
+
+    public QAuditoriaAlertaRepository(String variable) {
+        super(AuditoriaAlertaRepository.class, forVariable(variable));
+    }
+
+    public QAuditoriaAlertaRepository(Path<? extends AuditoriaAlertaRepository> path) {
+        super(path.getType(), path.getMetadata());
+    }
+
+    public QAuditoriaAlertaRepository(PathMetadata metadata) {
+        super(AuditoriaAlertaRepository.class, metadata);
+    }
+
+}
+
