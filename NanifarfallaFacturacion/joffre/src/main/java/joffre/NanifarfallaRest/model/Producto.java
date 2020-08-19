@@ -165,9 +165,21 @@ public class Producto {
 	@JsonBackReference
 	private Collection<RecetaProductotieneInsumo> recetasproductosinsumos = new ArrayList<>();
 
-	@OneToMany(mappedBy = "mColores", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mProducto", fetch = FetchType.EAGER)
 	@JsonBackReference
 	private Collection<ProductoTieneColores> productoTieneColores = new ArrayList<>();
+
+	@OneToMany(mappedBy = "mProducto", fetch = FetchType.EAGER)
+	@JsonBackReference
+	private Collection<Cliente_tiene_preferencia> clienteTienePreferencia = new ArrayList<>();
+
+	public Collection<Cliente_tiene_preferencia> getClienteTienePreferencia() {
+		return clienteTienePreferencia;
+	}
+
+	public void setClienteTienePreferencia(Collection<Cliente_tiene_preferencia> clienteTienePreferencia) {
+		this.clienteTienePreferencia = clienteTienePreferencia;
+	}
 
 	public Collection<ProductoTieneColores> getProductoTieneColores() {
 		return productoTieneColores;

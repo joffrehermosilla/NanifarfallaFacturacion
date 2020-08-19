@@ -80,6 +80,7 @@ public class ClienteController {
 		cliente.setmUsuario(clienteDetails.getmUsuario());
 		cliente.setVersion(clienteDetails.getVersion());
 		cliente.setContratos(clienteDetails.getContratos());
+		cliente.setClienteTienePreferencia(clienteDetails.getClienteTienePreferencia());
 
 		Cliente updatedEstadoCliente = clienterepository.save(cliente);
 		LOGGER.info("METHOD: 'updateCliente'--PARAMS: '" + clienteDetails + "'");

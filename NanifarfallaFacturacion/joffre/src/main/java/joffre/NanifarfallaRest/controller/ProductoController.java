@@ -86,6 +86,7 @@ public class ProductoController {
 		producto.setSalida_almacen_producto(productoDetails.getSalida_almacen_producto());
 		producto.setIngreso_almacen_producto(productoDetails.getIngreso_almacen_producto());
 		producto.setVersion(productoDetails.getVersion());
+		producto.setClienteTienePreferencia(productoDetails.getClienteTienePreferencia());
 
 		Producto updatedProducto = productoRepository.save(producto);
 		LOGGER.info("METHOD: 'updateProducto'--PARAMS: '" + productoDetails + "'");

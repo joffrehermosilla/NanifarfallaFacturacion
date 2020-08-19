@@ -1,0 +1,40 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name = "area")
+@EntityListeners(AuditingEntityListener.class)
+public class ClienteTienePreferencia {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_preferencia_sku;
+	@JoinColumn(name = "fkcodigo_cliente", referencedColumnName = "codigo_cliente")
+	@JsonBackReference
+	@ManyToOne
+	Cliente mCliente;
+	// int fkcodigo_cliente;
+
+	@JoinColumn(name = "fkcodigo_producto", referencedColumnName = "codigo_producto")
+	@JsonBackReference
+	@ManyToOne
+	Producto mProducto;
+	// int fkcodigo_producto;
+	Date fecha_voto_preferencia;
+	int cantidad_puntos;
+	Date version;
+
+}
