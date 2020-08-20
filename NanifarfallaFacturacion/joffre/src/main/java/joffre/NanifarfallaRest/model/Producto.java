@@ -6,7 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -165,11 +165,11 @@ public class Producto {
 	@JsonBackReference
 	private Collection<RecetaProductotieneInsumo> recetasproductosinsumos = new ArrayList<>();
 
-	@OneToMany(mappedBy = "mProducto", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mProducto")
 	@JsonBackReference
 	private Collection<ProductoTieneColores> productoTieneColores = new ArrayList<>();
 
-	@OneToMany(mappedBy = "mProducto", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mProducto")
 	@JsonBackReference
 	private Collection<Cliente_tiene_preferencia> clienteTienePreferencia = new ArrayList<>();
 

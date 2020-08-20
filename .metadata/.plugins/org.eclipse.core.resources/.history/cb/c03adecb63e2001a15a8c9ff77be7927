@@ -1,0 +1,44 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name = "cliente_tiene_catalogo")
+@EntityListeners(AuditingEntityListener.class)
+public class ClienteTieneCatalogo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_cliente_tiene_catalogo;
+	@JoinColumn(name = "fkcodigo_cliente", referencedColumnName = "codigo_cliente")
+	@ManyToOne
+	@JsonBackReference
+	Cliente cliente;
+	
+	@JoinColumn(name = "fkcodigo_catalogo", referencedColumnName = "codigo_catalogo")
+	@ManyToOne
+	Catalogo mCatalogo;
+//fkcodigo_catalogo	
+	Date fecha_inicio;
+	Date fecha_fin;
+	Double precio;
+	String claveApi;
+	Date version;
+	
+	
+	
+	
+	
+}

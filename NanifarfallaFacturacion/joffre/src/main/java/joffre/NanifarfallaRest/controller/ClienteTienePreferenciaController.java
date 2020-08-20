@@ -1,4 +1,5 @@
 package joffre.NanifarfallaRest.controller;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -20,7 +21,6 @@ import joffre.NanifarfallaRest.exception.ResourceNotFoundException;
 import joffre.NanifarfallaRest.model.Cliente_tiene_preferencia;
 import joffre.NanifarfallaRest.repository.ClientetienePreferenciaRepository;
 
-
 @RestController
 @RequestMapping("/apiClienteTienePreferencia")
 public class ClienteTienePreferenciaController {
@@ -38,7 +38,8 @@ public class ClienteTienePreferenciaController {
 	}
 
 	@PostMapping("/AddClientetienePreferencia")
-	public Cliente_tiene_preferencia createClienteTienePreferencia(@Valid @RequestBody Cliente_tiene_preferencia clientetienepreferencia) {
+	public Cliente_tiene_preferencia createClienteTienePreferencia(
+			@Valid @RequestBody Cliente_tiene_preferencia clientetienepreferencia) {
 		LOGGER.info("INFO TRACE");
 		LOGGER.warn("WARNING  TRACE");
 		LOGGER.error("ERROR TRACE");
@@ -47,29 +48,34 @@ public class ClienteTienePreferenciaController {
 	}
 
 	@GetMapping("/ClientetienePreferencia/{id}")
-	public Cliente_tiene_preferencia getClientetienePreferenciaById(@PathVariable(value = "id") int clientetienepreferenciaId) {
+	public Cliente_tiene_preferencia getClientetienePreferenciaById(
+			@PathVariable(value = "id") int clientetienepreferenciaId) {
 		LOGGER.info("INFO  TRACE");
 		LOGGER.warn("WARNING  TRACE");
 		LOGGER.error("ERROR TRACE");
 		LOGGER.debug("DEBUG  TRACE");
-		return clientetienepreferenciarepository.findById(clientetienepreferenciaId)
-				.orElseThrow(() -> new ResourceNotFoundException("Cliente_tiene_preferencia", "id", clientetienepreferenciaId));
+		return clientetienepreferenciarepository.findById(clientetienepreferenciaId).orElseThrow(
+				() -> new ResourceNotFoundException("Cliente_tiene_preferencia", "id", clientetienepreferenciaId));
 	}
 
 	@PutMapping("/ClientetienePreferencia/{id}")
-	public Cliente_tiene_preferencia updateClienteTienePreferencia(@PathVariable(value = "id") int clientetienepreferenciaId,
+	public Cliente_tiene_preferencia updateClienteTienePreferencia(
+			@PathVariable(value = "id") int clientetienepreferenciaId,
 			@Valid @RequestBody Cliente_tiene_preferencia clientetienepreferenciaDetails) {
 
-		Cliente_tiene_preferencia clientetienepreferencia = clientetienepreferenciarepository.findById(clientetienepreferenciaId)
-				.orElseThrow(() -> new ResourceNotFoundException("Cliente_tiene_preferencia", "id", clientetienepreferenciaId));
+		Cliente_tiene_preferencia clientetienepreferencia = clientetienepreferenciarepository
+				.findById(clientetienepreferenciaId)
+				.orElseThrow(() -> new ResourceNotFoundException("Cliente_tiene_preferencia", "id",
+						clientetienepreferenciaId));
 
 		clientetienepreferencia.setCantidad_puntos(clientetienepreferenciaDetails.getCantidad_puntos());
 		clientetienepreferencia.setFecha_voto_preferencia(clientetienepreferenciaDetails.getFecha_voto_preferencia());
-		clientetienepreferencia.setCliente(clientetienepreferenciaDetails.getCliente());
-		clientetienepreferencia.setProducto(clientetienepreferenciaDetails.getProducto());
+		clientetienepreferencia.setmCliente(clientetienepreferenciaDetails.getmCliente());
+		clientetienepreferencia.setmProducto(clientetienepreferenciaDetails.getmProducto());
 		clientetienepreferencia.setClaveApi(clientetienepreferenciaDetails.getClaveApi());
 
-		Cliente_tiene_preferencia updatedClientetienePreferencia = clientetienepreferenciarepository.save(clientetienepreferencia);
+		Cliente_tiene_preferencia updatedClientetienePreferencia = clientetienepreferenciarepository
+				.save(clientetienepreferencia);
 		LOGGER.info("METHOD: 'updateClienteTienePreferencia'--PARAMS: '" + clientetienepreferenciaDetails + "'");
 		LOGGER.warn("WARNING  TRACE");
 		LOGGER.error("ERROR TRACE");
@@ -79,8 +85,10 @@ public class ClienteTienePreferenciaController {
 
 	@DeleteMapping("/clienteTienePreferencia/{id}")
 	public ResponseEntity<?> deleteClienteTienePreferencia(@PathVariable(value = "id") int clientetienepreferenciaId) {
-		Cliente_tiene_preferencia clientetienepreferencia = clientetienepreferenciarepository.findById(clientetienepreferenciaId)
-				.orElseThrow(() -> new ResourceNotFoundException("Cliente_tiene_preferencia", "id", clientetienepreferenciaId));
+		Cliente_tiene_preferencia clientetienepreferencia = clientetienepreferenciarepository
+				.findById(clientetienepreferenciaId)
+				.orElseThrow(() -> new ResourceNotFoundException("Cliente_tiene_preferencia", "id",
+						clientetienepreferenciaId));
 
 		clientetienepreferenciarepository.delete(clientetienepreferencia);
 		LOGGER.info("METHOD: 'deleteClienteTienePreferencia'--PARAMS: '" + clientetienepreferencia + "'");

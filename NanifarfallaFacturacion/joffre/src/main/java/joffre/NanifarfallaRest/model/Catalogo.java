@@ -51,6 +51,18 @@ public class Catalogo {
 	@JsonBackReference
 	private Collection<Contrato> contratos = new ArrayList<>();
 
+	@OneToMany(mappedBy = "mCatalogo")
+	@JsonBackReference
+	private Collection<ClienteTieneCatalogo> clienteTieneCatalogos = new ArrayList<>();
+
+	public Collection<ClienteTieneCatalogo> getClienteTieneCatalogos() {
+		return clienteTieneCatalogos;
+	}
+
+	public void setClienteTieneCatalogos(Collection<ClienteTieneCatalogo> clienteTieneCatalogos) {
+		this.clienteTieneCatalogos = clienteTieneCatalogos;
+	}
+
 	public Collection<Contrato> getContratos() {
 		return contratos;
 	}

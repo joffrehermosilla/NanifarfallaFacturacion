@@ -23,24 +23,22 @@ public class Cliente_tiene_preferencia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int codigo_preferecia_sku;
-	
+
 	@JoinColumn(name = "fkcodigo_producto", referencedColumnName = "codigo_producto")
 	@ManyToOne
 	@JsonBackReference
-	Producto producto;
-	
-	
+	Producto mProducto;
+
 	@JoinColumn(name = "fkcodigo_cliente", referencedColumnName = "codigo_cliente")
 	@ManyToOne
 	@JsonBackReference
-	Cliente cliente;
-	
+	Cliente mCliente;
+
 	@NotBlank
-	private Date fecha_voto_preferencia	;
-	
-	
+	private Date fecha_voto_preferencia;
+
 	@NotBlank
-	private Double cantidad_puntos	;
+	private Double cantidad_puntos;
 
 	@NotBlank
 	private String claveApi;
@@ -53,20 +51,20 @@ public class Cliente_tiene_preferencia {
 		this.codigo_preferecia_sku = codigo_preferecia_sku;
 	}
 
-	public Producto getProducto() {
-		return producto;
+	public Producto getmProducto() {
+		return mProducto;
 	}
 
-	public void setProducto(Producto producto) {
-		this.producto = producto;
+	public void setmProducto(Producto mProducto) {
+		this.mProducto = mProducto;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Cliente getmCliente() {
+		return mCliente;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setmCliente(Cliente mCliente) {
+		this.mCliente = mCliente;
 	}
 
 	public Date getFecha_voto_preferencia() {
@@ -92,5 +90,5 @@ public class Cliente_tiene_preferencia {
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
 	}
-	
+
 }

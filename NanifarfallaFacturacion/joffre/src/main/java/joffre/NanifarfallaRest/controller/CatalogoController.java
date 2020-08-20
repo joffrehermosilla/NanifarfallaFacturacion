@@ -79,6 +79,7 @@ public class CatalogoController {
 		catalogo.setValor_con_igv(catalogoDetails.getValor_con_igv());
 		catalogo.setVersion(catalogoDetails.getVersion());
 		catalogo.setContratos(catalogoDetails.getContratos());
+		catalogo.setClienteTieneCatalogos(catalogoDetails.getClienteTieneCatalogos());
 
 		Catalogo updatedcatalogo = catalogoRepository.save(catalogo);
 		LOGGER.info("METHOD: 'updatecatalogo'--PARAMS: '" + catalogoDetails + "'");

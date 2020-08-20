@@ -54,6 +54,10 @@ public class Cliente {
 	@JsonBackReference
 	private Collection<Cliente_tiene_preferencia> clienteTienePreferencia = new ArrayList<>();
 
+	@OneToMany(mappedBy = "mCliente")
+	@JsonBackReference
+	private Collection<ClienteTieneCatalogo> clienteTieneCatalogos = new ArrayList<>();
+
 	@NotBlank
 	private Double latitud_cliente;
 
@@ -79,6 +83,14 @@ public class Cliente {
 	private String claveApi;
 	@NotBlank
 	private Date version;
+
+	public Collection<ClienteTieneCatalogo> getClienteTieneCatalogos() {
+		return clienteTieneCatalogos;
+	}
+
+	public void setClienteTieneCatalogos(Collection<ClienteTieneCatalogo> clienteTieneCatalogos) {
+		this.clienteTieneCatalogos = clienteTieneCatalogos;
+	}
 
 	public Collection<Cliente_tiene_preferencia> getClienteTienePreferencia() {
 		return clienteTienePreferencia;

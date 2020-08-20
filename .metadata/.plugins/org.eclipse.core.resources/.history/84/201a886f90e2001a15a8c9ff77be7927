@@ -1,0 +1,6 @@
+package joffre.NanifarfallaRest.controller.auditorias;
+
+public class AuditoriaClienteTieneCatalogoController {
+
+	AuditoriaClienteTieneCatalogoRepository AuditoriaClienteTieneCatalogoRepository;
+}
