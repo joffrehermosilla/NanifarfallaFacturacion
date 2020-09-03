@@ -63,7 +63,7 @@ public class PrivilegeController {
 		Privilege privilege = privilegeRepository.findById(privilegeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Privilege", "id", privilegeId));
 
-		privilege.setNombre_privilege(privilegeDetails.getNombre_privilege());
+		privilege.setName(privilegeDetails.getName());
 		privilege.setRoleHasPrivileges(privilegeDetails.getRoleHasPrivileges());
 		privilege.setVersion(privilegeDetails.getVersion());
 

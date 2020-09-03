@@ -43,7 +43,8 @@ public class Usuario {
 	String password_usuario;
 	@NotBlank
 	String ruta_foto_usuario;
-
+	@NotBlank
+	String genero;
 	@JoinColumn(name = "fkcodigo_distrito", referencedColumnName = "codigo_distrito")
 	@JsonBackReference
 	@ManyToOne
@@ -89,6 +90,16 @@ public class Usuario {
 	@OneToMany(mappedBy = "mUsuario")
 	@JsonBackReference
 	private Collection<UserAlerta> useralertas = new ArrayList<>();
+	
+	
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
 
 	public Collection<UserAlerta> getUseralertas() {
 		return useralertas;

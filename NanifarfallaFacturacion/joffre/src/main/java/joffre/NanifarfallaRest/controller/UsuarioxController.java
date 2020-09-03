@@ -83,6 +83,7 @@ public class UsuarioxController {
 		usuariox.setVerificationToken(usuarioxDetails.getVerificationToken());
 		usuariox.setContratos(usuarioxDetails.getContratos());
 		usuariox.setUseralertas(usuarioxDetails.getUseralertas());
+		usuariox.setGenero(usuarioxDetails.getGenero());
 
 		Usuario updatedUsuariox = Usuarioxrepository.save(usuariox);
 

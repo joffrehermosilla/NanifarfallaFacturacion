@@ -28,7 +28,7 @@ public class RoleController {
 	private static final Log LOGGER = LogFactory.getLog(RoleController.class);
 	@Autowired
 	RoleRepository roleRepository;
-	
+
 	@GetMapping("/roles")
 	public List<Role> getAllRoles() {
 		LOGGER.info("INFO TRACE");
@@ -61,9 +61,9 @@ public class RoleController {
 
 		Role role = roleRepository.findById(roleId)
 				.orElseThrow(() -> new ResourceNotFoundException("Role", "id", roleId));
-		role.setNombre_role(roleDetails.getNombre_role());
+		role.setName(roleDetails.getName());
 		role.setVersion(roleDetails.getVersion());
-	
+		role.setRoleHasPrivileges(roleDetails.getRoleHasPrivileges());
 
 		Role updatedRole = roleRepository.save(role);
 		LOGGER.info("METHOD: 'updateRole'--PARAMS: '" + roleDetails + "'");
@@ -86,5 +86,5 @@ public class RoleController {
 		return ResponseEntity.ok().build();
 	}
 	// http://localhost:8085/nanifarfalla-service/swagger-ui.html
-	
+
 }

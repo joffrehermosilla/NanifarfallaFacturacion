@@ -1,0 +1,9 @@
+package joffre.NanifarfallaRest.controller;
+
+import joffre.NanifarfallaRest.repository.MenuV1Repository;
+
+public class MenuV1Controller {
+
+	
+	MenuV1Repository menuV1Repository;
+}

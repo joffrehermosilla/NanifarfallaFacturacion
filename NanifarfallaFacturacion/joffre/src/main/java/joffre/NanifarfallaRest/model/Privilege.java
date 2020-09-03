@@ -23,7 +23,7 @@ public class Privilege {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int codigo_privilege;
-	String nombre_privilege;
+	String name;
 	Date version;
 	@OneToMany(mappedBy = "mPrivilege")
 	@JsonBackReference
@@ -41,12 +41,14 @@ public class Privilege {
 		this.codigo_privilege = codigo_privilege;
 	}
 
-	public String getNombre_privilege() {
-		return nombre_privilege;
+
+
+	public String getName() {
+		return name;
 	}
 
-	public void setNombre_privilege(String nombre_privilege) {
-		this.nombre_privilege = nombre_privilege;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Date getVersion() {

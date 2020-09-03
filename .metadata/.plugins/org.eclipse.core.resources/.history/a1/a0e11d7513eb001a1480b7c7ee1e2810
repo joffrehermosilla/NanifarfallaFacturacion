@@ -1,0 +1,113 @@
+package joffre.NanifarfallaRest.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name = "menu_v1")
+@EntityListeners(AuditingEntityListener.class)
+public class MenuV1 {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int id;
+	@NotBlank
+	String nombre;
+
+	@JoinColumn(name = "padre_id", referencedColumnName = "id")
+	@OneToOne
+	@JsonBackReference
+	MenuV1 mMenuV1;
+
+	@NotBlank
+	String ruta;
+	@NotBlank
+	String icon;
+	@NotBlank
+	Date version;
+	int lft;
+	@NotBlank
+	int rgt;
+
+	public MenuV1() {
+
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public MenuV1 getmMenuV1() {
+		return mMenuV1;
+	}
+
+	public void setmMenuV1(MenuV1 mMenuV1) {
+		this.mMenuV1 = mMenuV1;
+	}
+
+	public String getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(String ruta) {
+		this.ruta = ruta;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+	public Date getVersion() {
+		return version;
+	}
+
+	public void setVersion(Date version) {
+		this.version = version;
+	}
+
+	public int getLft() {
+		return lft;
+	}
+
+	public void setLft(int lft) {
+		this.lft = lft;
+	}
+
+	public int getRgt() {
+		return rgt;
+	}
+
+	public void setRgt(int rgt) {
+		this.rgt = rgt;
+	}
+
+}

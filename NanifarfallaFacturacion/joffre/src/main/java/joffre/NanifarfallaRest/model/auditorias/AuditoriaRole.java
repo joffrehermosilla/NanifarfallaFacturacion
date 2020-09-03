@@ -24,13 +24,29 @@ public class AuditoriaRole {
 	@NotBlank
 	Date fecha_cambio;
 	@NotBlank
-	String nombre_role_old;
+	String name_old;
 	@NotBlank
 	Date version_old;
 	@NotBlank
-	String nombre_role_new;
+	String name_new;
 	@NotBlank
 	Date version_new;
+
+	public String getName_old() {
+		return name_old;
+	}
+
+	public void setName_old(String name_old) {
+		this.name_old = name_old;
+	}
+
+	public String getName_new() {
+		return name_new;
+	}
+
+	public void setName_new(String name_new) {
+		this.name_new = name_new;
+	}
 
 	public AuditoriaRole() {
 
@@ -60,28 +76,12 @@ public class AuditoriaRole {
 		this.fecha_cambio = fecha_cambio;
 	}
 
-	public String getNombre_role_old() {
-		return nombre_role_old;
-	}
-
-	public void setNombre_role_old(String nombre_role_old) {
-		this.nombre_role_old = nombre_role_old;
-	}
-
 	public Date getVersion_old() {
 		return version_old;
 	}
 
 	public void setVersion_old(Date version_old) {
 		this.version_old = version_old;
-	}
-
-	public String getNombre_role_new() {
-		return nombre_role_new;
-	}
-
-	public void setNombre_role_new(String nombre_role_new) {
-		this.nombre_role_new = nombre_role_new;
 	}
 
 	public Date getVersion_new() {

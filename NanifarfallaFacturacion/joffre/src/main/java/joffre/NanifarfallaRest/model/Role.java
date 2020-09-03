@@ -25,7 +25,7 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int codigo_role;
 	@NotBlank
-	String nombre_role;
+	String name;
 	@NotBlank
 	Date version;
 	@OneToMany(mappedBy = "mRole")
@@ -36,6 +36,37 @@ public class Role {
 
 	}
 
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+
+	public Collection<RoleHasPrivileges> getRoleHasPrivileges() {
+		return roleHasPrivileges;
+	}
+
+
+
+
+	public void setRoleHasPrivileges(Collection<RoleHasPrivileges> roleHasPrivileges) {
+		this.roleHasPrivileges = roleHasPrivileges;
+	}
+
+
+
+
 	public int getCodigo_role() {
 		return codigo_role;
 	}
@@ -44,13 +75,7 @@ public class Role {
 		this.codigo_role = codigo_role;
 	}
 
-	public String getNombre_role() {
-		return nombre_role;
-	}
 
-	public void setNombre_role(String nombre_role) {
-		this.nombre_role = nombre_role;
-	}
 
 	public Date getVersion() {
 		return version;
