@@ -1,0 +1,7 @@
+package joffre.NanifarfallaRest.controller;
+
+import joffre.NanifarfallaRest.repository.MenuRolesRepository;
+
+public class MenuRolesController {
+	MenuRolesRepository menuRolesRepository;
+}

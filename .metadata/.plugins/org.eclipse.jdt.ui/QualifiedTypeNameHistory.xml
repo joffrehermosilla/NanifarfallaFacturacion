@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaMenuV1Repository"/>
 <fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaMenuV1"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.MenuRolesRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.MenuRoles"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.repository.auditorias.AuditoriaMenuRolesRepository"/>
+<fullyQualifiedTypeName name="joffre.NanifarfallaRest.model.auditorias.AuditoriaMenuRoles"/>
 </qualifiedTypeNameHistroy>

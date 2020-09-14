@@ -47,10 +47,26 @@ public class MenuV1 {
 	@OneToMany(mappedBy = "mMenuV1")
 	@JsonBackReference
 	private Collection<MenuV1> menuV1 = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "mMenuV1")
+	@JsonBackReference
+	private Collection<MenuRoles> menuRoles = new ArrayList<>();
+
 
 	public MenuV1() {
 
 	}
+	
+
+	public Collection<MenuRoles> getMenuRoles() {
+		return menuRoles;
+	}
+
+
+	public void setMenuRoles(Collection<MenuRoles> menuRoles) {
+		this.menuRoles = menuRoles;
+	}
+
 
 	public Collection<MenuV1> getMenuV1() {
 		return menuV1;

@@ -70,6 +70,7 @@ public class MenuV1Controller {
 		menuv1.setmMenuV1(MenuV1Details.getmMenuV1());
 		menuv1.setNombre(MenuV1Details.getNombre());
 		menuv1.setVersion(MenuV1Details.getVersion());
+		menuv1.setMenuRoles(MenuV1Details.getMenuRoles());
 
 		MenuV1 updatedMenuV1 = menuV1Repository.save(menuv1);
 		LOGGER.info("METHOD: 'updateMenuV1'--PARAMS: '" + MenuV1Details + "'");

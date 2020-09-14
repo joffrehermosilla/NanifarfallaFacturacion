@@ -64,6 +64,7 @@ public class RoleController {
 		role.setName(roleDetails.getName());
 		role.setVersion(roleDetails.getVersion());
 		role.setRoleHasPrivileges(roleDetails.getRoleHasPrivileges());
+		role.setMenuRoles(roleDetails.getMenuRoles());
 
 		Role updatedRole = roleRepository.save(role);
 		LOGGER.info("METHOD: 'updateRole'--PARAMS: '" + roleDetails + "'");

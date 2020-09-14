@@ -1,0 +1,41 @@
+package joffre.NanifarfallaRest.model.auditorias;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "auditoria_menu_roles")
+@EntityListeners(AuditingEntityListener.class)
+public class AuditoriaMenuRoles {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codigo_audi_menu_roles;
+	@NotBlank
+	String usuario;
+	@NotBlank
+	Date fecha_cambio;
+	@NotBlank
+	int fkcodigo_role_old;
+	@NotBlank
+	int fkid_old;
+	@NotBlank
+	Date version_old;
+	@NotBlank
+	String nombre_role_new;
+	@NotBlank
+	int fkcodigo_role_new;
+	@NotBlank
+	int fkid_new;
+	@NotBlank
+	Date version_new;
+
+}

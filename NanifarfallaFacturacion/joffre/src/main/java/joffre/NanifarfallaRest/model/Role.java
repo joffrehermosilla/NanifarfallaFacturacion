@@ -31,6 +31,10 @@ public class Role {
 	@OneToMany(mappedBy = "mRole")
 	@JsonBackReference
 	private Collection<RoleHasPrivileges> roleHasPrivileges = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "mRole")
+	@JsonBackReference
+	private Collection<MenuRoles> menuRoles = new ArrayList<>();
 
 	public Role() {
 
@@ -39,6 +43,20 @@ public class Role {
 	
 	
 	
+	public Collection<MenuRoles> getMenuRoles() {
+		return menuRoles;
+	}
+
+
+
+
+	public void setMenuRoles(Collection<MenuRoles> menuRoles) {
+		this.menuRoles = menuRoles;
+	}
+
+
+
+
 	public String getName() {
 		return name;
 	}
