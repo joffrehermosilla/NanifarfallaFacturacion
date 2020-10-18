@@ -1,0 +1,5 @@
+package joffre.NanifarfallaRest.service.impl;
+
+public class AsyncServiceImpl {
+
+}

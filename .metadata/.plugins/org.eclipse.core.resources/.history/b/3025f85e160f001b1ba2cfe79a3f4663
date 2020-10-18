@@ -1,0 +1,12 @@
+package joffre.NanifarfallaRest.config;
+
+import org.springframework.context.annotation.ComponentScan;
+
+//@Configuration
+//@ImportResource({ "classpath:webSecurityConfig.xml" })
+@ComponentScan("joffre.NanifarfallaRest.config")
+public class SecurityXmlConfig {
+	public SecurityXmlConfig() {
+		super();
+	}
+}

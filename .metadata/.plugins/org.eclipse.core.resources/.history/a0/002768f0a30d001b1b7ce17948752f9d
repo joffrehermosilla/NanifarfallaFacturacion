@@ -1,0 +1,5 @@
+server.port=8085
+
+texto.ejemploparamcontroller.index.titulo:El texto enviado es
+texto.ejemploparamcontroller.pefil.titulo:El saludo enviado es
+texto.ejemploparamcontroller.listar.titulo:y el numero es

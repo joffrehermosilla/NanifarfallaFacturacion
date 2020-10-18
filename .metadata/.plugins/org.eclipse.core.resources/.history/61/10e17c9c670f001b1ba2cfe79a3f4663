@@ -1,0 +1,5 @@
+package joffre.NanifarfallaRest.config;
+
+public class ClientWebConfig {
+
+}

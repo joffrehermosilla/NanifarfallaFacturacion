@@ -1,0 +1,5 @@
+package joffre.NanifarfallaRest.error;
+
+public class CustomAccessDeniedHandler {
+
+}

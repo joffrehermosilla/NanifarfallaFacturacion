@@ -1,0 +1,14 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+<span th:text="${usuario.nombre_usuario}"></span>
+<span th:text="${usuario.apellido_usuario}"></span>
+<span th:if="${usuario.email}" th:text="${usuario.email}"></span>
+<span th:if="${usuario.email==null}" th:text="'el usuario no tiene correo'"></span>
+</body>
+</html>

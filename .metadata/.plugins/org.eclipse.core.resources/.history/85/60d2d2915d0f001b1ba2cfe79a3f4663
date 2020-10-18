@@ -1,0 +1,5 @@
+package joffre.NanifarfallaRest.security.web;
+
+public class RestAuthenticationEntryPoint {
+
+}

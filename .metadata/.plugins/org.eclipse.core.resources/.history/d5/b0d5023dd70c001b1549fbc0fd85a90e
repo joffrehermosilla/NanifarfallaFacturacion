@@ -1,0 +1,34 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Envia PARAMETROS GET HTTP</title>
+</head>
+
+
+<body>
+	<h1>Envia PARAMETROS GET HTTP</h1>
+	<ul>
+		<li><a th:href="@{/params/string(texto='Hola Joffre')}">/params/string?texto=Hola
+				Joffre</a></li>
+		<li><a th:href="@{/params/string(texto='Que tal Constanza')}">/params/string?texto=Que
+				tal Constanza</a></li>
+
+		<li><a
+			th:href="@{/params/mix-params(saludo='Que tal Constanza', numero=7)}">/params/mix-param?saludo=Que
+				tal Constanza , numero = 7</a></li>
+
+		<li><a
+			th:href="@{/params/http-params(saludo='Que tal Constanza', numero=79)}">/params/http-params?saludo=Que
+				tal Constanza , numero = 79</a></li>
+
+		<li><a th:href="@{/variables/string/} +'HOla familia'">/variables/string?Hola
+				Familia</a></li>
+		<li><a th:href="@{/variables/string/} +'HOla familia' + '999'">/variables/string?Hola
+				Familia el numero es 999</a></li>
+
+	</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+
+<div th:if="${usuarios.size()}">No hay usuario en la lista</div>
+
+
+
+</body>
+</html>
