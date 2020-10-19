@@ -1,0 +1,62 @@
+package joffre.NanifarfallaRest.controller;
+
+import java.security.Principal;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+@Controller
+public class LoginController {
+	private static final Log LOGGER = LogFactory.getLog(LoginController.class);
+
+	@PreAuthorize("#oauth2.hasScope('bar') and #oauth2.hasScope('read')")
+	@GetMapping("/swagger")
+	@ResponseBody
+	public String swagger() {
+		return "redirect:/swagger-ui.html";
+	}
+
+	  @PreAuthorize("#oauth2.hasScope('bar') and #oauth2.hasScope('write') and hasRole('ROLE_ADMIN')")
+	@GetMapping({ "/", "/login" })
+	    @ResponseStatus(HttpStatus.CREATED)
+	@ResponseBody
+	public String login(@RequestParam(value = "error", required = false) String error,
+			@RequestParam(value = "logout", required = false) String logout, Model model, Principal principal,
+			RedirectAttributes flash) {
+
+		if (principal != null) {
+			flash.addFlashAttribute("info", "Ya ha inciado sesión anteriormente");
+
+			return "login";
+		}
+
+		if (error != null) {
+			model.addAttribute("error",
+					"Error en el login: Nombre de usuario o contraseña incorrecta, por favor vuelva a intentarlo!");
+
+		}
+
+		if (logout != null) {
+			model.addAttribute("success", "Ha cerrado sesión con éxito!");
+
+		}
+		LOGGER.info("INFO  TRACE");
+		LOGGER.warn("WARNING  TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG  TRACE");
+
+		return "login";
+
+	}
+
+}

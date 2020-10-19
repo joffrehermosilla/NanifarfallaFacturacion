@@ -37,7 +37,7 @@ import springfox.documentation.service.AuthorizationScope;
 @EnableSwagger2
 public class PruebaSwagger {
 
-	public static final String AUTH_SERVER = "http://localhost:8081/spring-security-oauth-server/oauth";
+	public static final String AUTH_SERVER = "http://localhost:8085/oauth";
 	public static final String CLIENT_ID = "fooClientIdPassword";
 	public static final String CLIENT_SECRET = "secret";
 
@@ -65,7 +65,7 @@ public class PruebaSwagger {
 	private ApiInfo apiInfo() {
 		ApiInfo apiInfo = new ApiInfo("NANIFARFALLA REST API", "Nanifarfalla APIs for developments.",
 				"NANIFARFALLA API TOS", "Terms of service",
-				new Contact("Joffre Hermosilla Salas", "www.nanifarfalla.com.pe", "virtualstore@nanifarfalla.com.pe"),
+				new Contact("Joffre Hermosilla Salas", "http://www.nanifarfalla.com.pe", "virtualstore@nanifarfalla.com.pe"),
 				"License of API", "API license URL", Collections.emptyList());
 		return apiInfo;
 	}

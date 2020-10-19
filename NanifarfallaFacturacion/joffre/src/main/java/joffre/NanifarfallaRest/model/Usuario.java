@@ -40,6 +40,23 @@ public class Usuario {
 	@NotBlank
 	String nombre_logeo_usuario;
 	@NotBlank
+	String email;
+	public Usuario(@NotBlank String nombre_usuario, @NotBlank String apellido_usuario, @NotBlank String email) {
+		super();
+		this.nombre_usuario = nombre_usuario;
+		this.apellido_usuario = apellido_usuario;
+		this.email = email;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@NotBlank
 	String password_usuario;
 	@NotBlank
 	String ruta_foto_usuario;

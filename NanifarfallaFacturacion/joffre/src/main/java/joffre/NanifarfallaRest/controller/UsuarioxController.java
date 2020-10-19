@@ -84,6 +84,7 @@ public class UsuarioxController {
 		usuariox.setContratos(usuarioxDetails.getContratos());
 		usuariox.setUseralertas(usuarioxDetails.getUseralertas());
 		usuariox.setGenero(usuarioxDetails.getGenero());
+		usuariox.setEmail(usuarioxDetails.getEmail());
 
 		Usuario updatedUsuariox = Usuarioxrepository.save(usuariox);
 
