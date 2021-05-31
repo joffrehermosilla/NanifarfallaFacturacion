@@ -67,7 +67,7 @@ public class Distrito {
 		this.ciudad = ciudad;
 	}
 
-	@OneToMany(mappedBy = "distrito")
+	@OneToMany(mappedBy = "mDistrito")
 	@JsonBackReference
 	private Collection<Usuario> usuario = new ArrayList<>();
 

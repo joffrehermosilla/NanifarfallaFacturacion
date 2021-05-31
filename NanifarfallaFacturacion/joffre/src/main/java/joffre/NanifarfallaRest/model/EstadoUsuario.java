@@ -54,7 +54,7 @@ public class EstadoUsuario {
 		this.usuario = usuario;
 	}
 
-	@OneToMany(mappedBy = "estadousuario")
+	@OneToMany(mappedBy = "mEstadousuario")
 	@JsonBackReference
 	private Collection<Usuario> usuario = new ArrayList<>();
 

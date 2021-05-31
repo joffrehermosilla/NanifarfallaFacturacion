@@ -46,7 +46,7 @@ public class UserAnuncios {
 	@NotBlank
 	Date version;
 
-	@OneToMany(mappedBy = "mUserAnuncios", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mUserAnuncios")
 	@JsonBackReference
 	private Collection<Contrato> contratos = new ArrayList<>();
 

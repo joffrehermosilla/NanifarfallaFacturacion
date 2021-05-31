@@ -64,21 +64,20 @@ public class UsuarioxController {
 
 		usuariox.setNombre_usuario(usuarioxDetails.getNombre_usuario());
 		usuariox.setApellido_usuario(usuarioxDetails.getApellido_usuario());
-		usuariox.setFecha_nacimiento(usuarioxDetails.getFecha_nacimiento());
+
 		usuariox.setDireccion_usuario(usuarioxDetails.getDireccion_usuario());
 		usuariox.setNombre_logeo_usuario(usuarioxDetails.getNombre_logeo_usuario());
 		usuariox.setPassword_usuario(usuarioxDetails.getPassword_usuario());
-		usuariox.setRuta_foto_usuario(usuarioxDetails.getRuta_foto_usuario());
-		usuariox.setTipousuario(usuarioxDetails.getTipousuario());
-		usuariox.setEstadousuario(usuarioxDetails.getEstadousuario());
-		usuariox.setDistrito(usuarioxDetails.getDistrito());
+
+
+	
 		usuariox.setClaveApi(usuarioxDetails.getClaveApi());
 		usuariox.setCliente(usuarioxDetails.getCliente());
 		usuariox.setPasswordResetTokens(usuarioxDetails.getPasswordResetTokens());
 		usuariox.setUseranuncios(usuarioxDetails.getUseranuncios());
 		usuariox.setVendedor(usuarioxDetails.getVendedor());
 		usuariox.setCliente_tiene_pedido(usuarioxDetails.getCliente_tiene_pedido());
-		usuariox.setTipousuario(usuarioxDetails.getTipousuario());
+
 		usuariox.setUseranuncios(usuarioxDetails.getUseranuncios());
 		usuariox.setVerificationToken(usuarioxDetails.getVerificationToken());
 		usuariox.setContratos(usuarioxDetails.getContratos());
