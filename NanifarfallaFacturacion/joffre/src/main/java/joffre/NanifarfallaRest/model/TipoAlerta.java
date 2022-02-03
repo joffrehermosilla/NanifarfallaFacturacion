@@ -39,6 +39,13 @@ public class TipoAlerta {
 	@JsonBackReference
 	private Collection<UserAlerta> useralertas = new ArrayList<>();
 
+
+	@OneToMany(mappedBy = "mTipoAlerta")
+	@JsonBackReference
+	private transient Collection<Anuncio> anuncios = new ArrayList<>();
+	
+	
+	
 	public Collection<Alerta> getAlertas() {
 		return alertas;
 	}

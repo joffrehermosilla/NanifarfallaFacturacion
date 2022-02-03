@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "estado_catalogo")
+@Table(name = "audi_estado_catalogo")
 public class AuditoriaEstadoCatalogo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

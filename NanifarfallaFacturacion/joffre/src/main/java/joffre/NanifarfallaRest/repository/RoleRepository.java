@@ -7,5 +7,8 @@ import joffre.NanifarfallaRest.model.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Integer> {
+    Role findByName(String name);
 
+    @Override
+    void delete(Role role);
 }

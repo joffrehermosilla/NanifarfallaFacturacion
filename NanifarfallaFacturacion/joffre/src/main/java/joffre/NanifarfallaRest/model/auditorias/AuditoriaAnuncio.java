@@ -22,7 +22,7 @@ public class AuditoriaAnuncio {
 	Date fecha_cambio;
 	String mensaje_anuncio_old;
 	String anuncio_principal_old;
-	String pie_mensaje_old;
+	String pie_mensaje_old;	
 	String link_mensaje_old;
 	String ruta_imagen_old;
 	Double precio_old;

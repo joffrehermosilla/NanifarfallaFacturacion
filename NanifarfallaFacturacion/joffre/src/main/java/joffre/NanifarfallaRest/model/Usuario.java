@@ -100,6 +100,10 @@ public class Usuario {
 	@OneToMany(mappedBy = "mUsuario")
 	@JsonBackReference
 	private Collection<VerificationToken> verificationToken = new ArrayList<>();
+	
+
+	
+	
 
 	@OneToMany(mappedBy = "mUsuario")
 	@JsonBackReference
@@ -410,11 +414,25 @@ public class Usuario {
 	@Override
 	public String toString() {
 		final StringBuilder builder = new StringBuilder();
-		builder.append("Usuario [codigo_usuario=").append(codigo_usuario).append(", nombre_usuario=")
-				.append(nombre_usuario).append(", apellido_usuario=").append(apellido_usuario)
-				.append(", email_usuario=").append(email).append(", password_usuario=").append(password_usuario)
-				.append(", enabled=").append(enabled).append(", isUsing2FA2=").append(isUsing2FA).append(", secret=")
-				.append(secret).append(", roles=").append(roles).append("]");
+		builder.append("Usuario [codigo_usuario=")
+		.append(codigo_usuario)
+		.append(", nombre_usuario=")
+				.append(nombre_usuario).
+				append(", apellido_usuario=")
+				.append(apellido_usuario)
+				.append(", email_usuario=")
+				.append(email)
+				.append(", password_usuario=")
+				.append(password_usuario)
+				.append(", enabled=")
+				.append(enabled)
+				.append(", isUsing2FA2=")
+				.append(isUsing2FA)
+				.append(", secret=")
+				.append(secret)
+				.append(", roles=")
+				.append(roles).
+				append("]");
 		return builder.toString();
 	}
 	

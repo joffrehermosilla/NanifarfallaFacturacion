@@ -3,6 +3,8 @@ package joffre.NanifarfallaRest.repository;
 import org.springframework.stereotype.Repository;
 import joffre.NanifarfallaRest.model.Usuario;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -39,5 +41,11 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
 	@Override
 	void delete(Usuario user);
+
+	Optional<Usuario> findById(Integer user_id);
+
+	void deleteById(Integer userId);
+	
+ 
 
 }

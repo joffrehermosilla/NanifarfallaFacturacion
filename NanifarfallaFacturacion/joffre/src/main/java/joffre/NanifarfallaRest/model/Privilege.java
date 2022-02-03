@@ -33,6 +33,11 @@ public class Privilege {
 
 	}
 
+	public Privilege(final String name) {
+		super();
+		this.name = name;
+	}
+
 	public int getCodigo_privilege() {
 		return codigo_privilege;
 	}
@@ -40,8 +45,6 @@ public class Privilege {
 	public void setCodigo_privilege(int codigo_privilege) {
 		this.codigo_privilege = codigo_privilege;
 	}
-
-
 
 	public String getName() {
 		return name;
@@ -65,6 +68,38 @@ public class Privilege {
 
 	public void setRoleHasPrivileges(Collection<RoleHasPrivileges> roleHasPrivileges) {
 		this.roleHasPrivileges = roleHasPrivileges;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Privilege other = (Privilege) obj;
+		if (getName() == null) {
+			if (other.getName() != null)
+				return false;
+		} else if (!getName().equals(other.getName()))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder builder = new StringBuilder();
+		builder.append("Privilege [name=").append(name).append("]").append("[id=").append(codigo_privilege).append("]");
+		return builder.toString();
 	}
 
 }

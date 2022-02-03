@@ -14,7 +14,7 @@ import joffre.NanifarfallaRest.model.VerificationToken;
 import joffre.NanifarfallaRest.web.dto.UserDto;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
+
 import java.util.Optional;
 
 
@@ -72,5 +72,14 @@ public interface UsuarioService {
 	    String isValidNewLocationToken(String token);
 
 	    void addUserLocation(Usuario user, String ip); 
+	    
+
+
+
+
+
+
+
+
 	 
 }

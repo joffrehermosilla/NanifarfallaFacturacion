@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "auditoria_area")
+@Table(name = "audi_cliente_tiene_preferencia")
 @EntityListeners(AuditingEntityListener.class)
 public class AuditoriaClienteTienePreferencia {
 	@Id

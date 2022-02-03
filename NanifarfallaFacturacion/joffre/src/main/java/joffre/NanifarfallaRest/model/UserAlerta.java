@@ -19,7 +19,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-@Table(name = "pais")
+@Table(name = "user_alertas")
 @EntityListeners(AuditingEntityListener.class)
 public class UserAlerta {
 

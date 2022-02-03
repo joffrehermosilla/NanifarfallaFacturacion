@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -29,6 +30,9 @@ public class Linea {
 	@JsonBackReference
 	private Collection<Producto> productos = new ArrayList<>();
 
+	@Column(name = "active")
+	private Byte isActive;
+	
 	@NotBlank
 	private String nombre_linea;
 
@@ -84,6 +88,18 @@ public class Linea {
 	public void setClaveApi(String claveApi) {
 		this.claveApi = claveApi;
 	}
+
+	
+	
+	public Byte getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Byte isActive) {
+		this.isActive = isActive;
+	}
+
+
 
 	@NotBlank
 	private String claveApi;

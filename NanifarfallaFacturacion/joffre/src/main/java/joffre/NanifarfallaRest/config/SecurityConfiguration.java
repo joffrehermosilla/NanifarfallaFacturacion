@@ -8,14 +8,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.User.UserBuilder;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import joffre.NanifarfallaRest.auth.LoginSuccessHandler;
-import joffre.NanifarfallaRest.repository.UsuarioRepository;
 import joffre.NanifarfallaRest.security.CustomRememberMeServices;
 import joffre.NanifarfallaRest.security.google2fa.CustomAuthenticationProvider;
 import joffre.NanifarfallaRest.security.google2fa.CustomWebAuthenticationDetailsSource;
@@ -48,32 +44,27 @@ import java.io.IOException;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	/*
-	 * @Autowired private UserDetailsService userDetailsService;
-	 */
-	/*
-	 * @Autowired private AuthenticationSuccessHandler
-	 * myAuthenticationSuccessHandler;
-	 * 
-	 * @Autowired private LogoutSuccessHandler myLogoutSuccessHandler;
-	 * 
-	 * @Autowired private AuthenticationFailureHandler authenticationFailureHandler;
-	 * 
-	 * @Autowired private CustomWebAuthenticationDetailsSource
-	 * authenticationDetailsSource;
-	 * 
-	 * @Autowired private UsuarioRepository userRepository;
-	 * 
-	 * @Autowired private DifferentLocationChecker differentLocationChecker;
-	 */
-
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	@Autowired
+	private UserDetailsService userDetailsService;
 
 	@Autowired
-	private LoginSuccessHandler successHandler;
+	private AuthenticationSuccessHandler myAuthenticationSuccessHandler;
+
+	@Autowired
+	private LogoutSuccessHandler myLogoutSuccessHandler;
+
+	@Autowired
+	private AuthenticationFailureHandler authenticationFailureHandler;
+
+	@Autowired
+	private CustomWebAuthenticationDetailsSource authenticationDetailsSource;
+
+	@Autowired
+	private DifferentLocationChecker differentLocationChecker;
+
+	public SecurityConfiguration() {
+		super();
+	}
 
 	@Bean
 	@Override
@@ -81,61 +72,66 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return super.authenticationManagerBean();
 	}
 
-	/*
-	 * @Override protected void configure(final AuthenticationManagerBuilder auth)
-	 * throws Exception { auth.authenticationProvider(authProvider()); }
-	 */
+	@Override
+	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(authProvider());
+	}
 
-	
-	
-
-	/*
-	 * @Override protected void configure(final AuthenticationManagerBuilder auth)
-	 * throws Exception { auth.authenticationProvider(authProvider()); }
-	 */
-	 
-
-	
-	
-	
-	
-	
 	@Override
 	public void configure(final WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/resources/**").antMatchers("/h2/**");
 	}
 
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+	protected void configure(final HttpSecurity http) throws Exception {
+		// @formatter:off
+	        http
+	            .csrf().disable()
+	            .authorizeRequests()
+	                .antMatchers("/login*", "/logout*", "/signin/**", "/signup/**", "/customLogin",
+	                        "/user/registration*", "/registrationConfirm*", "/expiredAccount*", "/registration*",
+	                        "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*", "/user/resetPassword*","/user/savePassword*","/updatePassword*",
+	                        "/user/changePassword*", "/emailError*", "/resources/**","/old/user/registration*","/successRegister*","/qrcode*","/user/enableNewLoc*").permitAll()
+	                .antMatchers("/invalidSession*").anonymous()
+	                .antMatchers("/user/updatePassword*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
+	                .anyRequest().hasAuthority("READ_PRIVILEGE")
+	                .and()
+	            .formLogin()
+	                .loginPage("/login")
+	                .defaultSuccessUrl("/homepage.html")
+	                .failureUrl("/login?error=true")
+	                .successHandler(myAuthenticationSuccessHandler)
+	                .failureHandler(authenticationFailureHandler)
+	                .authenticationDetailsSource(authenticationDetailsSource)
+	            .permitAll()
+	                .and()
+	            .sessionManagement()
+	                .invalidSessionUrl("/invalidSession.html")
+	                .maximumSessions(1).sessionRegistry(sessionRegistry()).and()
+	                .sessionFixation().none()
+	            .and()
+	            .logout()
+	                .logoutSuccessHandler(myLogoutSuccessHandler)
+	                .invalidateHttpSession(false)
+	                .logoutSuccessUrl("/logout.html?logSucc=true")
+	                .deleteCookies("JSESSIONID")
+	                .permitAll()
+	             .and()
+	                .rememberMe().rememberMeServices(rememberMeServices()).key("theKey");
 
-		http.authorizeRequests().antMatchers("/", "/css/**", "/js/**", "/images/**", "/listar").permitAll()
-				.antMatchers("/ver/**").hasAnyRole("USER").antMatchers("/uploads/**").hasAnyRole("USER")
-				.antMatchers("/form/**").hasAnyRole("ADMIN").antMatchers("/eliminar/**").hasAnyRole("ADMIN")
-				.antMatchers("/factura/**").hasAnyRole("ADMIN").anyRequest().authenticated().and().formLogin()
-				.successHandler(successHandler).loginPage("/login").permitAll().and().logout().permitAll().and()
-				.exceptionHandling().accessDeniedPage("/error_403");
-
-	}
-
-	@Autowired
-	public void configurerGlobal(AuthenticationManagerBuilder builder) throws Exception {
-		PasswordEncoder encoder = passwordEncoder();
-		UserBuilder users = User.builder().passwordEncoder(encoder::encode);
-		builder.inMemoryAuthentication().withUser(users.username("admin").password("1234").roles("ADMIN", "USER"))
-				.withUser(users.username("joffre").password("1234").roles("USER"));
+	    // @formatter:on
 	}
 
 	// beans
 
-	/*
-	 * @Bean public DaoAuthenticationProvider authProvider() { final
-	 * CustomAuthenticationProvider authProvider = new
-	 * CustomAuthenticationProvider();
-	 * authProvider.setUserDetailsService(userDetailsService);
-	 * authProvider.setPasswordEncoder(encoder());
-	 * authProvider.setPostAuthenticationChecks(differentLocationChecker); return
-	 * authProvider; }
-	 */
+	@Bean
+	public DaoAuthenticationProvider authProvider() {
+		final CustomAuthenticationProvider authProvider = new CustomAuthenticationProvider();
+		authProvider.setUserDetailsService(userDetailsService);
+		authProvider.setPasswordEncoder(encoder());
+		authProvider.setPostAuthenticationChecks(differentLocationChecker);
+		return authProvider;
+	}
 
 	@Bean
 	public PasswordEncoder encoder() {
@@ -147,12 +143,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return new SessionRegistryImpl();
 	}
 
-	/*
-	 * @Bean public RememberMeServices rememberMeServices() {
-	 * CustomRememberMeServices rememberMeServices = new
-	 * CustomRememberMeServices("theKey", userDetailsService, new
-	 * InMemoryTokenRepositoryImpl()); return rememberMeServices; }
-	 */
+	@Bean
+	public RememberMeServices rememberMeServices() {
+		CustomRememberMeServices rememberMeServices = new CustomRememberMeServices("theKey", userDetailsService,
+				new InMemoryTokenRepositoryImpl());
+		return rememberMeServices;
+	}
 
 	@Bean(name = "GeoIPCountry")
 	public DatabaseReader databaseReader() throws IOException, GeoIp2Exception {
