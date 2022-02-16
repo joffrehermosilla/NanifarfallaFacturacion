@@ -35,7 +35,13 @@ public class Vendedor {
 		this.codigo_vendedor = codigo_vendedor;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
 
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public Area getArea() {
 		return area;
@@ -72,7 +78,7 @@ public class Vendedor {
 	@JoinColumn(name = "fkcodigo_usuario", referencedColumnName = "codigo_usuario")
 	@ManyToOne
 	@JsonBackReference
-	Usuario mUsuario;
+	Usuario usuario;
 
 	@JoinColumn(name = "fkcodigo_area", referencedColumnName = "codigo_area")
 	@ManyToOne
@@ -100,16 +106,4 @@ public class Vendedor {
 		this.version = version;
 	}
 
-	public Usuario getmUsuario() {
-		return mUsuario;
-	}
-
-	public void setmUsuario(Usuario mUsuario) {
-		this.mUsuario = mUsuario;
-	}
-
-
-
-	
-	
 }

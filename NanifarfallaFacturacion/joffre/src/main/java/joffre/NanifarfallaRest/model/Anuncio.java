@@ -10,8 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -50,10 +48,7 @@ public class Anuncio {
 	@JsonBackReference
 	private Collection<UserAnuncios> useranuncios = new ArrayList<>();
 	
-	@JoinColumn(name = "fkcodigo_tipoalerta", referencedColumnName = "codigo_tipoalerta")
-	@ManyToOne
-	@JsonBackReference
-	TipoAlerta mTipoAlerta;
+	
 
 	public String getClaveApi() {
 		return claveApi;
@@ -139,15 +134,4 @@ public class Anuncio {
 		this.version = version;
 	}
 
-	public TipoAlerta getmTipoAlerta() {
-		return mTipoAlerta;
-	}
-
-	public void setmTipoAlerta(TipoAlerta mTipoAlerta) {
-		this.mTipoAlerta = mTipoAlerta;
-	}
-
-	
-	
-	
 }

@@ -60,7 +60,7 @@ public class TipoUsuario {
 		this.claveApi = claveApi;
 	}
 
-	@OneToMany(mappedBy = "mTipousuario")
+	@OneToMany(mappedBy = "tipousuario")
 	@JsonBackReference
 	private Collection<Usuario> usuario = new ArrayList<>();
 

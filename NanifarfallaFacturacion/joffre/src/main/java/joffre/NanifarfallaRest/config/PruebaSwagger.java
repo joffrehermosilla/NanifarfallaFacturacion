@@ -65,7 +65,7 @@ public class PruebaSwagger {
 	private ApiInfo apiInfo() {
 		ApiInfo apiInfo = new ApiInfo("NANIFARFALLA REST API", "Nanifarfalla APIs for developments.",
 				"NANIFARFALLA API TOS", "Terms of service",
-				new Contact("Joffre Hermosilla Salas", "http://www.nanifarfalla.com.pe", "virtualstore@nanifarfalla.com.pe"),
+				new Contact("Joffre Hermosilla Salas", "http://nanifarfalla.com.pe", "virtualstore@nanifarfalla.com.pe"),
 				"License of API", "API license URL", Collections.emptyList());
 		return apiInfo;
 	}

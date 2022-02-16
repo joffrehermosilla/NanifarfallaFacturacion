@@ -7,8 +7,5 @@ import joffre.NanifarfallaRest.model.Privilege;
 
 @Repository
 public interface PrivilegeRepository extends JpaRepository<Privilege, Integer> {
-    Privilege findByName(String name);
 
-    @Override
-    void delete(Privilege privilege);
 }

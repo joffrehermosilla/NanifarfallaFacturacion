@@ -63,12 +63,12 @@ public class VendedorController {
 		Vendedor vendedor = vendedorrepository.findById(vendedorId)
 				.orElseThrow(() -> new ResourceNotFoundException("Vendedor", "id", vendedorId));
 
-		vendedor.setmUsuario(vendedorDetails.getmUsuario());
+		vendedor.setUsuario(vendedorDetails.getUsuario());
 		vendedor.setArea(vendedorDetails.getArea());
 		vendedor.setCliente_tiene_pedido(vendedorDetails.getCliente_tiene_pedido());
 		vendedor.setCodigo_venta_vendedor(vendedorDetails.getCodigo_venta_vendedor());
 		vendedor.setClaveApi(vendedorDetails.getClaveApi());
-		vendedor.setmUsuario(vendedorDetails.getmUsuario());
+		vendedor.setUsuario(vendedorDetails.getUsuario());
 		vendedor.setVersion(vendedorDetails.getVersion());
 
 		Vendedor updatedVendedor = vendedorrepository.save(vendedor);

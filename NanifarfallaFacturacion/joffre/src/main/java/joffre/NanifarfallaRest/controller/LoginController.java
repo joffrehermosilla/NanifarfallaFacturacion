@@ -8,7 +8,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -16,12 +17,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class LoginController {
 	private static final Log LOGGER = LogFactory.getLog(LoginController.class);
 
-	@GetMapping({"/","/swagger"})
+	@GetMapping({ "/", "/swagger" })
 	public String swagger() {
 		return "redirect:/swagger-ui.html";
 	}
 
-	@GetMapping("/login")
+	@RequestMapping(value = "/login", method = { RequestMethod.POST, RequestMethod.GET })
 	public String login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout, Model model, Principal principal,
 			RedirectAttributes flash) {
@@ -29,7 +30,7 @@ public class LoginController {
 		if (principal != null) {
 			flash.addFlashAttribute("info", "Ya ha inciado sesión anteriormente");
 
-			return "login";
+			return "loginx";
 		}
 
 		if (error != null) {
@@ -47,7 +48,7 @@ public class LoginController {
 		LOGGER.error("ERROR TRACE");
 		LOGGER.debug("DEBUG  TRACE");
 
-		return "login";
+		return "loginx";
 
 	}
 

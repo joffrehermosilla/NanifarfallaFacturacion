@@ -6,7 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,7 +46,7 @@ public class UserAnuncios {
 	@NotBlank
 	Date version;
 
-	@OneToMany(mappedBy = "mUserAnuncios")
+	@OneToMany(mappedBy = "mUserAnuncios", fetch = FetchType.EAGER)
 	@JsonBackReference
 	private Collection<Contrato> contratos = new ArrayList<>();
 
